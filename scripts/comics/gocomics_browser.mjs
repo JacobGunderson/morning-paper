@@ -14,6 +14,21 @@ const input = await new Promise((resolve, reject) => {
 });
 const sources = JSON.parse(input);
 
+async function localChromeExecutable() {
+  const configured = process.env.MORNING_PAPER_CHROME;
+  const macosChrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+  for (const candidate of [configured, process.platform === 'darwin' ? macosChrome : undefined]) {
+    if (!candidate) continue;
+    try {
+      await fs.access(candidate);
+      return candidate;
+    } catch {
+      // Keep Playwright's bundled Chromium as the cross-platform fallback.
+    }
+  }
+  return undefined;
+}
+
 function datedUrl(slug, value) {
   const [year, month, day] = value.toISOString().slice(0, 10).split('-');
   return `https://www.gocomics.com/${slug}/${year}/${month}/${day}`;
@@ -82,7 +97,8 @@ async function collectOne(context, source) {
 }
 
 await fs.mkdir(outputDir, { recursive: true });
-const browser = await chromium.launch({ headless: true });
+const executablePath = await localChromeExecutable();
+const browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 try {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const results = new Array(sources.length);
