@@ -67,11 +67,34 @@ async def main() -> None:
 
     news_pairs = await asyncio.gather(*(news_source(source) for source in sources))
     assigned = assign_unique(dict(news_pairs), sources)
+    source_by_id = {source["id"]: source for source in sources}
+    status_by_id = {status["id"]: status["status"] for status in statuses if status["kind"] == "news"}
     news_data = {"generated_at": now.isoformat(), "sections": []}
     for section in news_config["sections"]:
+        subsections = []
+        for source in (candidate for candidate in sources if candidate["section"] == section["id"] and not candidate.get("fallback_for")):
+            active_source = source
+            items = assigned[source["id"]]
+            status = status_by_id.get(source["id"], "error")
+            fallback_id = source.get("fallback")
+            if not items and fallback_id:
+                fallback_source = source_by_id[fallback_id]
+                fallback_items = assigned[fallback_id]
+                if fallback_items:
+                    active_source = fallback_source
+                    items = fallback_items
+                    status = "fallback"
+            subsections.append({
+                "id": source["subsection"],
+                "title": source["title"],
+                "items": [item.public() for item in items],
+                "status": status,
+                "source": {"publisher": source["publisher"], "url": source["url"]},
+                "active_source": {"publisher": active_source["publisher"], "url": active_source["url"]},
+            })
         news_data["sections"].append({
             "id": section["id"], "title": section["title"],
-            "subsections": [{"id": source["subsection"], "title": source["title"], "items": [item.public() for item in assigned[source["id"]]], "status": next((status["status"] for status in statuses if status["id"] == source["id"]), "error")} for source in sources if source["section"] == section["id"]]
+            "subsections": subsections,
         })
 
     # Start every comic edition clean. Individual failures remain visible as source links.
@@ -95,6 +118,10 @@ async def main() -> None:
 
     async def comic_provider(provider: str) -> list[ComicResult]:
         provider_sources = [source for source in comic_sources if source["provider"] == provider]
+        if provider == "gocomics":
+            results = await gocomics.collect_all(provider_sources, day, comics_dir)
+            statuses.extend({"id": result.id, "kind": "comic", "status": result.status, "detail": result.detail[:240]} for result in results)
+            return results
         first = await comic_source(provider_sources[0])
         if first.status == "error" and len(provider_sources) > 1:
             # A transport-level failure on the representative page indicates a provider outage/block.

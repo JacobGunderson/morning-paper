@@ -25,7 +25,8 @@ sections:
       - { id: politico_energy, publisher: POLITICO, adapter: politico, subsection: energy_climate, title: Energy / Climate Policy, url: "https://www.politico.com/energy-climate-news-updates-analysis", limit: 10, specificity: 100 }
       - { id: politico_health, publisher: POLITICO, adapter: politico, subsection: healthcare, title: Healthcare, url: "https://www.politico.com/healthcare-news-updates-analysis", limit: 10, specificity: 100 }
       - { id: politico_legal, publisher: POLITICO, adapter: politico, subsection: supreme_court_legal, title: Supreme Court / Legal, url: "https://www.politico.com/supreme-court-legal-news-updates-analysis", limit: 10, specificity: 100 }
-      - { id: politico_tech, publisher: POLITICO, adapter: politico, subsection: technology, title: Technology, url: "https://www.politico.com/tech-news-updates-analysis", limit: 10, specificity: 100 }
+      - { id: politico_tech, publisher: POLITICO, adapter: politico, subsection: technology, title: Technology, url: "https://www.politico.com/tech-news-updates-analysis", limit: 10, specificity: 100, fallback: ap_technology }
+      - { id: ap_technology, publisher: AP, adapter: ap, subsection: technology, title: Technology, url: "https://apnews.com/technology", limit: 10, specificity: 100, fallback_for: politico_tech }
   - id: science
     title: Science
     sources:

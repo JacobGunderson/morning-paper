@@ -1,6 +1,10 @@
 import type { NewsData } from '../types';
 import { escapeHtml } from '../lib';
 
+function sourceLink(publisher: string, url: string, prefix = 'OPEN'): string {
+  return `<a class="source-link compact" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(prefix)} ${escapeHtml(publisher)} ↗</a>`;
+}
+
 export function renderNews(data: NewsData | null): HTMLElement {
   const view = document.createElement('section');
   view.className = 'view news-view';
@@ -16,9 +20,13 @@ export function renderNews(data: NewsData | null): HTMLElement {
         ${section.subsections.map(subsection => `
           <article class="news-column">
             <h2>${escapeHtml(subsection.title)}</h2>
+            ${subsection.status === 'fallback' && subsection.source && subsection.active_source ? `
+              <p class="source-note">${escapeHtml(subsection.source.publisher)} is unavailable. Showing ${escapeHtml(subsection.active_source.publisher)}.</p>
+              ${sourceLink(subsection.source.publisher, subsection.source.url)}
+            ` : ''}
             ${subsection.items.length ? `<ol>${subsection.items.map(item => `
               <li><a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.headline)}</a><span>${escapeHtml(item.publisher)}</span></li>
-            `).join('')}</ol>` : `<p class="notice">SOURCE CURRENTLY UNAVAILABLE</p>`}
+            `).join('')}</ol>` : `<p class="notice">SOURCE CURRENTLY UNAVAILABLE</p>${subsection.source ? sourceLink(subsection.source.publisher, subsection.source.url) : ''}`}
           </article>`).join('')}
       </div>
     </section>`).join('');

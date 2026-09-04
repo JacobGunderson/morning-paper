@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T16:14:21.256096-06:00",
+  "generated_at": "2026-09-04T16:32:31.569156-06:00",
   "sections": [
     {
       "id": "international",
@@ -90,7 +90,15 @@
               "source_page": "https://apnews.com/world-news"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/world-news"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/world-news"
+          }
         },
         {
           "id": "middle_east",
@@ -177,7 +185,15 @@
               "source_page": "https://apnews.com/hub/mideast-wars"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/mideast-wars"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/mideast-wars"
+          }
         },
         {
           "id": "russia_ukraine",
@@ -264,7 +280,15 @@
               "source_page": "https://apnews.com/hub/russia-ukraine"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/russia-ukraine"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/russia-ukraine"
+          }
         },
         {
           "id": "china",
@@ -351,12 +375,28 @@
               "source_page": "https://apnews.com/hub/china"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/china"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/china"
+          }
         },
         {
           "id": "latin_america",
           "title": "Latin America",
           "items": [
+            {
+              "publisher": "AP",
+              "headline": "Brazilian Supreme Court justices at odds as election and probe into failed bank loom",
+              "url": "https://apnews.com/article/brazil-supreme-court-crisis-election-looms-6815a4e2f6f06ba3aef235c64ba15b24",
+              "canonical_url": "https://apnews.com/article/brazil-supreme-court-crisis-election-looms-6815a4e2f6f06ba3aef235c64ba15b24",
+              "published_at": null,
+              "source_page": "https://apnews.com/hub/latin-america"
+            },
             {
               "publisher": "AP",
               "headline": "Argentina’s Milei escalates Falklands dispute, seizing on Trump comments and oil tensions",
@@ -428,17 +468,17 @@
               "canonical_url": "https://apnews.com/photo-gallery/us-venezuela-oil-deal-other-top-photos-latin-america-caribbean-203dafe6924a4251b6eec5ef63c0c0cf",
               "published_at": null,
               "source_page": "https://apnews.com/hub/latin-america"
-            },
-            {
-              "publisher": "AP",
-              "headline": "Photos show broken oil infrastructure and blackouts on Venezuela’s Lake Maracaibo",
-              "url": "https://apnews.com/photo-gallery/photos-show-broken-oil-infrastructure-blackouts-venezuela-s-lake-maracaibo-8f193d32841744c28edf554c1c440040",
-              "canonical_url": "https://apnews.com/photo-gallery/photos-show-broken-oil-infrastructure-blackouts-venezuela-s-lake-maracaibo-8f193d32841744c28edf554c1c440040",
-              "published_at": null,
-              "source_page": "https://apnews.com/hub/latin-america"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/latin-america"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/latin-america"
+          }
         },
         {
           "id": "africa",
@@ -525,7 +565,15 @@
               "source_page": "https://apnews.com/hub/africa"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/africa"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/africa"
+          }
         },
         {
           "id": "europe",
@@ -612,13 +660,29 @@
               "source_page": "https://apnews.com/hub/europe"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/europe"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/europe"
+          }
         },
         {
           "id": "canada",
           "title": "Canada",
           "items": [],
-          "status": "error"
+          "status": "error",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/canada-politics-news-updates-analysis"
+          },
+          "active_source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/canada-politics-news-updates-analysis"
+          }
         }
       ]
     },
@@ -711,7 +775,15 @@
               "source_page": "https://apnews.com/us-news"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/us-news"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/us-news"
+          }
         },
         {
           "id": "immigration",
@@ -798,7 +870,15 @@
               "source_page": "https://apnews.com/hub/immigration"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/immigration"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/immigration"
+          }
         },
         {
           "id": "weather",
@@ -885,7 +965,15 @@
               "source_page": "https://apnews.com/hub/weather"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/weather"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/weather"
+          }
         },
         {
           "id": "education",
@@ -972,7 +1060,15 @@
               "source_page": "https://apnews.com/education"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/education"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/education"
+          }
         },
         {
           "id": "transportation",
@@ -1059,55 +1155,208 @@
               "source_page": "https://apnews.com/us-news/transportation"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/us-news/transportation"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/us-news/transportation"
+          }
         },
         {
           "id": "congress",
           "title": "Congress",
           "items": [],
-          "status": "error"
+          "status": "error",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/congress-news-updates-analysis"
+          },
+          "active_source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/congress-news-updates-analysis"
+          }
         },
         {
           "id": "white_house",
           "title": "White House",
           "items": [],
-          "status": "error"
+          "status": "error",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/white-house-news-updates-analysis"
+          },
+          "active_source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/white-house-news-updates-analysis"
+          }
         },
         {
           "id": "national_security",
           "title": "National Security",
           "items": [],
-          "status": "error"
+          "status": "error",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/defense-national-security-foreign-policy-news-updates-analysis"
+          },
+          "active_source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/defense-national-security-foreign-policy-news-updates-analysis"
+          }
         },
         {
           "id": "elections_2026",
           "title": "2026 Elections",
           "items": [],
-          "status": "error"
+          "status": "error",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/2026-elections"
+          },
+          "active_source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/2026-elections"
+          }
         },
         {
           "id": "energy_climate",
           "title": "Energy / Climate Policy",
           "items": [],
-          "status": "error"
+          "status": "error",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/energy-climate-news-updates-analysis"
+          },
+          "active_source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/energy-climate-news-updates-analysis"
+          }
         },
         {
           "id": "healthcare",
           "title": "Healthcare",
           "items": [],
-          "status": "error"
+          "status": "error",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/healthcare-news-updates-analysis"
+          },
+          "active_source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/healthcare-news-updates-analysis"
+          }
         },
         {
           "id": "supreme_court_legal",
           "title": "Supreme Court / Legal",
           "items": [],
-          "status": "error"
+          "status": "error",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/supreme-court-legal-news-updates-analysis"
+          },
+          "active_source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/supreme-court-legal-news-updates-analysis"
+          }
         },
         {
           "id": "technology",
           "title": "Technology",
-          "items": [],
-          "status": "error"
+          "items": [
+            {
+              "publisher": "AP",
+              "headline": "Flock surveillance cameras become midterm campaign target as voters balk at tech companies’ power",
+              "url": "https://apnews.com/article/flock-cameras-campaigns-midterms-senate-election-2026-6e9a1eaf076994e9283ea93647deb6b5",
+              "canonical_url": "https://apnews.com/article/flock-cameras-campaigns-midterms-senate-election-2026-6e9a1eaf076994e9283ea93647deb6b5",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "Ode to the remote control, that tiny box that lets you channel your desires without ever getting up",
+              "url": "https://apnews.com/article/tv-remote-control-technology-surfing-b1e08edb28f334a8899b8cb477e9be59",
+              "canonical_url": "https://apnews.com/article/tv-remote-control-technology-surfing-b1e08edb28f334a8899b8cb477e9be59",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "White House website debuts 5 retro arcade video games that promote Trump’s agenda",
+              "url": "https://apnews.com/article/trump-white-house-video-game-arcade-d540ff089ed5b1d432715a4209b16a23",
+              "canonical_url": "https://apnews.com/article/trump-white-house-video-game-arcade-d540ff089ed5b1d432715a4209b16a23",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "Nvidia is buying AI platform Hugging Face for $13 billion",
+              "url": "https://apnews.com/article/nvidia-hugging-face-ai-d96d50e037a2ade479dcdf81cdf2afcf",
+              "canonical_url": "https://apnews.com/article/nvidia-hugging-face-ai-d96d50e037a2ade479dcdf81cdf2afcf",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "EPA proposal could leave the public in the dark on data center plans",
+              "url": "https://apnews.com/article/epa-data-centers-ai-public-comment-states-947eb927ae81162ad4cc3e828915c804",
+              "canonical_url": "https://apnews.com/article/epa-data-centers-ai-public-comment-states-947eb927ae81162ad4cc3e828915c804",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "Tech stocks lead a rally on Wall Street as bond yields ease some more",
+              "url": "https://apnews.com/article/stocks-markets-oil-trump-iran-war-7e1bffd68c53b54806be950f01181994",
+              "canonical_url": "https://apnews.com/article/stocks-markets-oil-trump-iran-war-7e1bffd68c53b54806be950f01181994",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "Trump administration backs OpenAI in New York Times’ copyright case over training of chatbots",
+              "url": "https://apnews.com/article/justice-department-new-york-times-openai-copyright-dbb22e8e02c660ee5a8644915dec39a4",
+              "canonical_url": "https://apnews.com/article/justice-department-new-york-times-openai-copyright-dbb22e8e02c660ee5a8644915dec39a4",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "One Tech Tip: How to keep your child’s tablets, laptops from becoming distractions from schoolwork",
+              "url": "https://apnews.com/article/school-tablets-computers-distractions-focus-d17defb97219ddd92bba0c63e2b1b1fe",
+              "canonical_url": "https://apnews.com/article/school-tablets-computers-distractions-focus-d17defb97219ddd92bba0c63e2b1b1fe",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "One Tech Tip: Hidden iPhone keyboard shortcuts to raise your texting and typing game",
+              "url": "https://apnews.com/article/apple-iphone-keyboard-typing-tricks-shortcuts-78fd9488e6a1ebc0840be8a0d1d42032",
+              "canonical_url": "https://apnews.com/article/apple-iphone-keyboard-typing-tricks-shortcuts-78fd9488e6a1ebc0840be8a0d1d42032",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            },
+            {
+              "publisher": "AP",
+              "headline": "One Tech Tip: Using your smartphone to capture the August total solar eclipse over Europe",
+              "url": "https://apnews.com/article/eclipse-photo-phone-camera-spain-europe-d73bc0d239eff680ae00ce08883f7c07",
+              "canonical_url": "https://apnews.com/article/eclipse-photo-phone-camera-spain-europe-d73bc0d239eff680ae00ce08883f7c07",
+              "published_at": null,
+              "source_page": "https://apnews.com/technology"
+            }
+          ],
+          "status": "fallback",
+          "source": {
+            "publisher": "POLITICO",
+            "url": "https://www.politico.com/tech-news-updates-analysis"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/technology"
+          }
         }
       ]
     },
@@ -1200,7 +1449,15 @@
               "source_page": "https://apnews.com/hub/space"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/space"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/space"
+          }
         },
         {
           "id": "archaeology",
@@ -1287,7 +1544,15 @@
               "source_page": "https://apnews.com/hub/archaeology-and-anthropology"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/archaeology-and-anthropology"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/archaeology-and-anthropology"
+          }
         },
         {
           "id": "animals",
@@ -1334,7 +1599,15 @@
               "source_page": "https://apnews.com/hub/animals"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/animals"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/hub/animals"
+          }
         },
         {
           "id": "climate",
@@ -1421,7 +1694,15 @@
               "source_page": "https://apnews.com/climate-and-environment"
             }
           ],
-          "status": "ok"
+          "status": "ok",
+          "source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/climate-and-environment"
+          },
+          "active_source": {
+            "publisher": "AP",
+            "url": "https://apnews.com/climate-and-environment"
+          }
         }
       ]
     }

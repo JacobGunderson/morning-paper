@@ -1,3 +1,5 @@
+import asyncio
+import json
 from datetime import date
 from pathlib import Path
 from datetime import timedelta
@@ -5,6 +7,27 @@ from datetime import timedelta
 from bs4 import BeautifulSoup
 from scripts.news.base import HttpClient
 from .base import ComicResult, dated_url, download_images
+
+
+async def collect_all(sources: list[dict], day: date, output_dir: Path) -> list[ComicResult]:
+    """Collect GoComics through its ordinary rendered dated pages in one browser session."""
+    script = Path(__file__).with_name("gocomics_browser.mjs")
+    process = await asyncio.create_subprocess_exec(
+        "node", str(script), day.isoformat(), str(output_dir),
+        stdin=asyncio.subprocess.PIPE,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await process.communicate(json.dumps(sources).encode())
+    if process.returncode != 0:
+        detail = stderr.decode(errors="replace").strip()[-240:] or "Rendered collector failed"
+        return [ComicResult(source["id"], source["title"], source["provider"], None, source["base_url"], [], "error", detail) for source in sources]
+    try:
+        values = json.loads(stdout)
+        return [ComicResult(**value) for value in values]
+    except (json.JSONDecodeError, TypeError) as exc:
+        detail = f"Invalid rendered collector result: {exc}"
+        return [ComicResult(source["id"], source["title"], source["provider"], None, source["base_url"], [], "error", detail) for source in sources]
 
 
 async def collect(source: dict, day: date, client: HttpClient, output_dir: Path) -> ComicResult:

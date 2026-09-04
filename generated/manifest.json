@@ -1,8 +1,8 @@
 {
-  "build_time": "2026-09-04T16:14:21.256096-06:00",
+  "build_time": "2026-09-04T16:32:31.569156-06:00",
   "edition_date": "2026-09-04",
   "news": {
-    "success": 16,
+    "success": 17,
     "failed": 9
   },
   "comics": {
@@ -15,16 +15,16 @@
   },
   "source_statuses": [
     {
-      "id": "ap_world",
-      "kind": "news",
-      "status": "ok",
-      "count": 24
-    },
-    {
       "id": "ap_russia_ukraine",
       "kind": "news",
       "status": "ok",
       "count": 30
+    },
+    {
+      "id": "ap_middle_east",
+      "kind": "news",
+      "status": "ok",
+      "count": 23
     },
     {
       "id": "ap_china",
@@ -39,10 +39,16 @@
       "count": 30
     },
     {
-      "id": "ap_africa",
+      "id": "ap_world",
       "kind": "news",
       "status": "ok",
-      "count": 29
+      "count": 24
+    },
+    {
+      "id": "ap_us",
+      "kind": "news",
+      "status": "ok",
+      "count": 21
     },
     {
       "id": "ap_europe",
@@ -51,10 +57,10 @@
       "count": 21
     },
     {
-      "id": "ap_us",
+      "id": "ap_africa",
       "kind": "news",
       "status": "ok",
-      "count": 21
+      "count": 29
     },
     {
       "id": "ap_immigration",
@@ -69,22 +75,16 @@
       "count": 26
     },
     {
-      "id": "ap_education",
-      "kind": "news",
-      "status": "ok",
-      "count": 29
-    },
-    {
       "id": "ap_transportation",
       "kind": "news",
       "status": "ok",
       "count": 30
     },
     {
-      "id": "ap_middle_east",
+      "id": "ap_education",
       "kind": "news",
       "status": "ok",
-      "count": 23
+      "count": 29
     },
     {
       "id": "politico_canada",
@@ -117,6 +117,12 @@
       "detail": "request failed after 3 attempts: https://www.politico.com/2026-elections: Client error '403 Forbidden' for url 'https://www.politico.com/2026-elections'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/40"
     },
     {
+      "id": "ap_technology",
+      "kind": "news",
+      "status": "ok",
+      "count": 29
+    },
+    {
       "id": "ap_space",
       "kind": "news",
       "status": "ok",
@@ -147,16 +153,16 @@
       "detail": "request failed after 3 attempts: https://www.politico.com/energy-climate-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/energy-climate-news-updates-analysis'\nFor more information check: https://develop"
     },
     {
-      "id": "politico_legal",
-      "kind": "news",
-      "status": "error",
-      "detail": "request failed after 3 attempts: https://www.politico.com/supreme-court-legal-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/supreme-court-legal-news-updates-analysis'\nFor more information check: https"
-    },
-    {
       "id": "politico_health",
       "kind": "news",
       "status": "error",
       "detail": "request failed after 3 attempts: https://www.politico.com/healthcare-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/healthcare-news-updates-analysis'\nFor more information check: https://developer.mozil"
+    },
+    {
+      "id": "politico_legal",
+      "kind": "news",
+      "status": "error",
+      "detail": "request failed after 3 attempts: https://www.politico.com/supreme-court-legal-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/supreme-court-legal-news-updates-analysis'\nFor more information check: https"
     },
     {
       "id": "politico_tech",
@@ -183,7 +189,7 @@
       "detail": ""
     },
     {
-      "id": "broom_hilda",
+      "id": "edison_lee",
       "kind": "comic",
       "status": "ok",
       "detail": ""
@@ -195,7 +201,13 @@
       "detail": ""
     },
     {
-      "id": "edison_lee",
+      "id": "dustin",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "broom_hilda",
       "kind": "comic",
       "status": "ok",
       "detail": ""
@@ -207,22 +219,10 @@
       "detail": ""
     },
     {
-      "id": "dustin",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
       "id": "rhymes_orange",
       "kind": "comic",
       "status": "ok",
       "detail": ""
-    },
-    {
-      "id": "far_side",
-      "kind": "comic",
-      "status": "error",
-      "detail": "request failed after 3 attempts: https://www.thefarside.com/: Client error '403 Forbidden' for url 'https://www.thefarside.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
     },
     {
       "id": "andy_capp",
@@ -399,13 +399,19 @@
       "detail": "Provider unavailable during representative request"
     },
     {
-      "id": "lat_crossword",
+      "id": "far_side",
+      "kind": "comic",
+      "status": "error",
+      "detail": "request failed after 3 attempts: https://www.thefarside.com/: Client error '403 Forbidden' for url 'https://www.thefarside.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+    },
+    {
+      "id": "lat_mini",
       "kind": "game",
       "status": "unavailable",
       "detail": ""
     },
     {
-      "id": "lat_mini",
+      "id": "lat_crossword",
       "kind": "game",
       "status": "unavailable",
       "detail": ""

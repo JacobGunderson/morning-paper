@@ -35,7 +35,7 @@ npm run test:e2e
 
 `scripts/refresh.py` is the orchestration entry point. It independently collects every configured source, records source status, validates the normalized data, and writes the static inputs in `generated/`. A failure from one publisher becomes an `unavailable` or `error` entry and does not stop unrelated sources. Validation runs before any Pages artifact is uploaded, so a bad new edition cannot replace the previous successful deployment.
 
-The collectors use simple HTTP first, JSON-LD and semantic markup before fallback selectors, 20-second timeouts, three attempts, and exponential backoff. They do not fetch article bodies, bypass access controls, or make readers' browsers contact news/comic publishers. The current comic build begins with an empty comic output directory, so it does not become a permanent archive.
+The collectors use simple HTTP first, JSON-LD and semantic markup before fallback selectors, 20-second timeouts, three attempts, and exponential backoff. GoComics is the exception: its dated pages are rendered in a standard Playwright Chromium session, then the displayed strip asset is cached for that edition. The collectors do not fetch article bodies or make readers' browsers contact news/comic publishers. The current comic build begins with an empty comic output directory, so it does not become a permanent archive.
 
 Adapters are isolated by provider:
 
@@ -58,6 +58,8 @@ Edit `config/site.yaml`. The refresh step emits `generated/site.json`, which the
 Add an item beneath a section in `config/news.yaml`. Required fields are `id`, `publisher`, `adapter`, `subsection`, `title`, `url`, `limit`, and `specificity`. A high specificity value claims duplicate stories before a low-specificity catch-all. The collector scans up to 30 candidates and fills each subsection with as many unique results as possible, up to its configured limit.
 
 News deduplication is global. Canonical URL equality wins first; a strongly normalized same-publisher headline match is the secondary rule. Different publishers covering the same event remain separate unless their canonical URL is literally identical.
+
+A source may declare `fallback: another_source_id`; the fallback source should declare `fallback_for: primary_source_id`. The fallback is collected normally but rendered only when the primary has no usable items. The Technology column uses AP Technology when Politico declines the scheduled request and keeps a direct link to Politico.
 
 ### Add a comic
 

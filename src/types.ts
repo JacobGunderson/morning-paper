@@ -1,5 +1,6 @@
 export type Article = { publisher: string; headline: string; url: string; canonical_url: string; published_at?: string | null; source_page: string };
-export type NewsData = { generated_at: string; sections: Array<{ id: string; title: string; subsections: Array<{ id: string; title: string; items: Article[]; status?: string }> }> };
+export type NewsSource = { publisher: string; url: string };
+export type NewsData = { generated_at: string; sections: Array<{ id: string; title: string; subsections: Array<{ id: string; title: string; items: Article[]; status?: string; source?: NewsSource; active_source?: NewsSource }> }> };
 export type Comic = { id: string; name: string; provider: string; published_date?: string | null; source_url: string; images: string[]; status: string };
 export type Manifest = { build_time: string; edition_date: string; news: { success: number; failed: number }; comics: { success: number; failed: number }; games: { success: number; failed: number }; source_statuses: Array<{ id: string; status: string; detail?: string }> };
 export type WordleData = { date: string; solution?: string; status: string; source_url: string };
