@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-04",
+  "external": [
+    {
+      "id": "blueberry",
+      "title": "Blueberry",
+      "provider": "circle9",
+      "url": "https://circle9puzzle.com/blueberry/",
+      "embed_url": "https://circle9puzzle.com/blueberry/",
+      "status": "ok"
+    },
+    {
+      "id": "blueberry_trio",
+      "title": "Blueberry Trio",
+      "provider": "circle9",
+      "url": "https://circle9puzzle.com/bbtrio/",
+      "embed_url": "https://circle9puzzle.com/bbtrio/",
+      "status": "ok"
+    },
+    {
+      "id": "twinominoes",
+      "title": "Twinominoes",
+      "provider": "circle9",
+      "url": "https://circle9puzzle.com/twinominoes/",
+      "embed_url": "https://circle9puzzle.com/twinominoes/",
+      "status": "ok"
+    },
+    {
+      "id": "lat_mini",
+      "title": "L.A. Times Mini",
+      "provider": "latimes",
+      "url": "https://www.latimes.com/games/mini-crossword",
+      "embed_url": null,
+      "status": "unavailable"
+    },
+    {
+      "id": "lat_crossword",
+      "title": "L.A. Times Crossword",
+      "provider": "latimes",
+      "url": "https://www.latimes.com/games/daily-crossword",
+      "embed_url": null,
+      "status": "unavailable"
+    }
+  ]
+}

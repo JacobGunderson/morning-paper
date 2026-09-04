@@ -1,0 +1,22 @@
+{
+  "name": "morning-paper",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "test": "vitest run --exclude 'tests/e2e/**' && (test -x .venv/bin/pytest && .venv/bin/pytest -q || python3 -m pytest -q)",
+    "test:ts": "vitest run --exclude 'tests/e2e/**'",
+    "test:py": "test -x .venv/bin/pytest && .venv/bin/pytest -q || python3 -m pytest -q",
+    "test:e2e": "playwright test",
+    "refresh": "python3 scripts/refresh.py"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+.pytest_cache/
+playwright-report/
+test-results/
+work/
+outputs/
+.DS_Store
+*.tsbuildinfo
+generated/comics/*
+!generated/comics/.gitkeep

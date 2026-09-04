@@ -1,0 +1,11 @@
+export type Article = { publisher: string; headline: string; url: string; canonical_url: string; published_at?: string | null; source_page: string };
+export type NewsData = { generated_at: string; sections: Array<{ id: string; title: string; subsections: Array<{ id: string; title: string; items: Article[]; status?: string }> }> };
+export type Comic = { id: string; name: string; provider: string; published_date?: string | null; source_url: string; images: string[]; status: string };
+export type Manifest = { build_time: string; edition_date: string; news: { success: number; failed: number }; comics: { success: number; failed: number }; games: { success: number; failed: number }; source_statuses: Array<{ id: string; status: string; detail?: string }> };
+export type WordleData = { date: string; solution?: string; status: string; source_url: string };
+export type ConnectionsGroup = { level: number; category: string; members: string[] };
+export type ConnectionsData = { date: string; groups?: ConnectionsGroup[]; status: string; source_url: string };
+export type StrandAnswer = { word: string; cells: Array<[number, number]>; spangram?: boolean };
+export type StrandsData = { date: string; theme?: string; grid?: string[]; answers?: StrandAnswer[]; valid_words?: string[]; status: string; source_url: string };
+export type ExternalGame = { id: string; title: string; url: string; embed_url?: string; status: string; provider: string };
+export type GamesData = { date: string; external: ExternalGame[] };

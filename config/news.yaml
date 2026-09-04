@@ -1,0 +1,35 @@
+sections:
+  - id: international
+    title: International
+    sources:
+      - { id: ap_world, publisher: AP, adapter: ap, subsection: world, title: World / International, url: "https://apnews.com/world-news", limit: 10, specificity: 0 }
+      - { id: ap_middle_east, publisher: AP, adapter: ap, subsection: middle_east, title: Middle East, url: "https://apnews.com/hub/mideast-wars", limit: 10, specificity: 100 }
+      - { id: ap_russia_ukraine, publisher: AP, adapter: ap, subsection: russia_ukraine, title: Russia / Ukraine, url: "https://apnews.com/hub/russia-ukraine", limit: 10, specificity: 100 }
+      - { id: ap_china, publisher: AP, adapter: ap, subsection: china, title: China, url: "https://apnews.com/hub/china", limit: 10, specificity: 100 }
+      - { id: ap_latin_america, publisher: AP, adapter: ap, subsection: latin_america, title: Latin America, url: "https://apnews.com/hub/latin-america", limit: 10, specificity: 100 }
+      - { id: ap_africa, publisher: AP, adapter: ap, subsection: africa, title: Africa, url: "https://apnews.com/hub/africa", limit: 10, specificity: 100 }
+      - { id: ap_europe, publisher: AP, adapter: ap, subsection: europe, title: Europe, url: "https://apnews.com/hub/europe", limit: 10, specificity: 100 }
+      - { id: politico_canada, publisher: POLITICO, adapter: politico, subsection: canada, title: Canada, url: "https://www.politico.com/canada-politics-news-updates-analysis", limit: 10, specificity: 100 }
+  - id: usa
+    title: United States
+    sources:
+      - { id: ap_us, publisher: AP, adapter: ap, subsection: united_states, title: United States, url: "https://apnews.com/us-news", limit: 10, specificity: 0 }
+      - { id: ap_immigration, publisher: AP, adapter: ap, subsection: immigration, title: Immigration, url: "https://apnews.com/hub/immigration", limit: 10, specificity: 100 }
+      - { id: ap_weather, publisher: AP, adapter: ap, subsection: weather, title: Weather, url: "https://apnews.com/hub/weather", limit: 10, specificity: 100 }
+      - { id: ap_education, publisher: AP, adapter: ap, subsection: education, title: Education, url: "https://apnews.com/education", limit: 10, specificity: 100 }
+      - { id: ap_transportation, publisher: AP, adapter: ap, subsection: transportation, title: Transportation, url: "https://apnews.com/us-news/transportation", limit: 10, specificity: 100 }
+      - { id: politico_congress, publisher: POLITICO, adapter: politico, subsection: congress, title: Congress, url: "https://www.politico.com/congress-news-updates-analysis", limit: 10, specificity: 100 }
+      - { id: politico_white_house, publisher: POLITICO, adapter: politico, subsection: white_house, title: White House, url: "https://www.politico.com/white-house-news-updates-analysis", limit: 10, specificity: 100 }
+      - { id: politico_security, publisher: POLITICO, adapter: politico, subsection: national_security, title: National Security, url: "https://www.politico.com/defense-national-security-foreign-policy-news-updates-analysis", limit: 10, specificity: 100 }
+      - { id: politico_elections, publisher: POLITICO, adapter: politico, subsection: elections_2026, title: 2026 Elections, url: "https://www.politico.com/2026-elections", limit: 10, specificity: 100 }
+      - { id: politico_energy, publisher: POLITICO, adapter: politico, subsection: energy_climate, title: Energy / Climate Policy, url: "https://www.politico.com/energy-climate-news-updates-analysis", limit: 10, specificity: 100 }
+      - { id: politico_health, publisher: POLITICO, adapter: politico, subsection: healthcare, title: Healthcare, url: "https://www.politico.com/healthcare-news-updates-analysis", limit: 10, specificity: 100 }
+      - { id: politico_legal, publisher: POLITICO, adapter: politico, subsection: supreme_court_legal, title: Supreme Court / Legal, url: "https://www.politico.com/supreme-court-legal-news-updates-analysis", limit: 10, specificity: 100 }
+      - { id: politico_tech, publisher: POLITICO, adapter: politico, subsection: technology, title: Technology, url: "https://www.politico.com/tech-news-updates-analysis", limit: 10, specificity: 100 }
+  - id: science
+    title: Science
+    sources:
+      - { id: ap_space, publisher: AP, adapter: ap, subsection: space, title: Space, url: "https://apnews.com/hub/space", limit: 10, specificity: 100 }
+      - { id: ap_archaeology, publisher: AP, adapter: ap, subsection: archaeology, title: Archaeology / Anthropology, url: "https://apnews.com/hub/archaeology-and-anthropology", limit: 10, specificity: 100 }
+      - { id: ap_animals, publisher: AP, adapter: ap, subsection: animals, title: Animals, url: "https://apnews.com/hub/animals", limit: 10, specificity: 100 }
+      - { id: ap_climate, publisher: AP, adapter: ap, subsection: climate, title: Climate / Environment, url: "https://apnews.com/climate-and-environment", limit: 10, specificity: 100 }
