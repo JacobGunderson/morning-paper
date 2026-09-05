@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T16:32:31.569156-06:00",
+  "generated_at": "2026-09-04T17:24:41.862856-06:00",
   "sections": [
     {
       "id": "international",
@@ -122,7 +122,7 @@
             },
             {
               "publisher": "AP",
-              "headline": "Trump calls Iran conflict ‘small potatoes’ and says he agrees with Vance that it’s not a ‘war’",
+              "headline": "Trump calls Iran conflict ‘small potatoes’ and defends Vance’s position that it’s not a ‘war’",
               "url": "https://apnews.com/article/trump-iran-vance-war-23a45a2c45c048a9e894baeab89c7a2f",
               "canonical_url": "https://apnews.com/article/trump-iran-vance-war-23a45a2c45c048a9e894baeab89c7a2f",
               "published_at": null,
@@ -791,7 +791,7 @@
           "items": [
             {
               "publisher": "AP",
-              "headline": "ICE officer pleads not guilty to lying about shooting and is ordered released from custody",
+              "headline": "ICE officer pleads not guilty to lying about shooting and is released from custody",
               "url": "https://apnews.com/article/ice-officer-justice-department-false-statements-charge-ec67b349c8c01e6289e3f1b89a2821e4",
               "canonical_url": "https://apnews.com/article/ice-officer-justice-department-false-statements-charge-ec67b349c8c01e6289e3f1b89a2821e4",
               "published_at": null,
@@ -981,6 +981,14 @@
           "items": [
             {
               "publisher": "AP",
+              "headline": "Former New Mexico lawmaker pleads guilty to diverting public school funds",
+              "url": "https://apnews.com/article/new-mexico-williams-stapleton-education-fraud-charges-527206565a8b63244166512d9361f5be",
+              "canonical_url": "https://apnews.com/article/new-mexico-williams-stapleton-education-fraud-charges-527206565a8b63244166512d9361f5be",
+              "published_at": null,
+              "source_page": "https://apnews.com/education"
+            },
+            {
+              "publisher": "AP",
               "headline": "Trump administration scrubs data on gender-based bullying from school civil rights survey",
               "url": "https://apnews.com/article/civil-rights-education-bullying-data-gender-nonbinary-f1b23fb6b03ed500f0bf02d1c8c8724f",
               "canonical_url": "https://apnews.com/article/civil-rights-education-bullying-data-gender-nonbinary-f1b23fb6b03ed500f0bf02d1c8c8724f",
@@ -1013,14 +1021,6 @@
             },
             {
               "publisher": "AP",
-              "headline": "German far-right party targets iconic Bauhaus school ahead of landmark state election",
-              "url": "https://apnews.com/article/germany-far-right-afd-bauhaus-school-election-e98d278a30dbed6fb9848e824e1b37e7",
-              "canonical_url": "https://apnews.com/article/germany-far-right-afd-bauhaus-school-election-e98d278a30dbed6fb9848e824e1b37e7",
-              "published_at": null,
-              "source_page": "https://apnews.com/education"
-            },
-            {
-              "publisher": "AP",
               "headline": "Michigan reading scores drop again. State superintendent: ‘We need to improve’",
               "url": "https://apnews.com/article/michigan-third-grade-reading-scores-drop-75b46b4291c7b2e9207e30c9dc79460f",
               "canonical_url": "https://apnews.com/article/michigan-third-grade-reading-scores-drop-75b46b4291c7b2e9207e30c9dc79460f",
@@ -1037,6 +1037,14 @@
             },
             {
               "publisher": "AP",
+              "headline": "German far-right party targets iconic Bauhaus school ahead of landmark state election",
+              "url": "https://apnews.com/article/germany-far-right-afd-bauhaus-school-election-e98d278a30dbed6fb9848e824e1b37e7",
+              "canonical_url": "https://apnews.com/article/germany-far-right-afd-bauhaus-school-election-e98d278a30dbed6fb9848e824e1b37e7",
+              "published_at": null,
+              "source_page": "https://apnews.com/education"
+            },
+            {
+              "publisher": "AP",
               "headline": "AP Exclusive: Hundreds of thousands of eligible kids are waiting for childcare assistance",
               "url": "https://apnews.com/article/childcare-assistance-daycare-cost-waitlist-2ceccc0e30baf7187857c968e631ba77",
               "canonical_url": "https://apnews.com/article/childcare-assistance-daycare-cost-waitlist-2ceccc0e30baf7187857c968e631ba77",
@@ -1048,14 +1056,6 @@
               "headline": "NYC, the nation’s largest school system, bans AI for students through 8th grade",
               "url": "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff",
               "canonical_url": "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff",
-              "published_at": null,
-              "source_page": "https://apnews.com/education"
-            },
-            {
-              "publisher": "AP",
-              "headline": "Gunman wounds staff member at Virginia elementary school, then kills himself",
-              "url": "https://apnews.com/article/waynesboro-virginia-school-evacuated-281acd774aabf0a1bc646a1c03cb244e",
-              "canonical_url": "https://apnews.com/article/waynesboro-virginia-school-evacuated-281acd774aabf0a1bc646a1c03cb244e",
               "published_at": null,
               "source_page": "https://apnews.com/education"
             }

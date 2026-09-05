@@ -11,11 +11,14 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 npm install
-python scripts/refresh.py
-npm run dev
+npm run comics:browser
+npm run refresh:local
+npm run preview
 ```
 
-Open the URL Vite prints. Hash routes are `#news`, `#commentary`, `#funnies`, and `#games`.
+Open the URL Vite prints (normally `http://127.0.0.1:4173`). Hash routes are `#news`, `#commentary`, `#funnies`, and `#games`. Use `npm run dev` instead of `npm run preview` when actively editing frontend code.
+
+`npm run comics:browser` opens a separate Chrome profile stored in `work/gocomics-chrome`. Keep that window open while refreshing. If GoComics asks for a sign-in, sign in once in that dedicated window; do not use the profile for unrelated browsing. `npm run refresh:local` attaches to that ordinary browser session, visits the configured dated pages in two working tabs, caches the displayed strips into `generated/comics/`, and creates a fresh production build. Chrome's debugging connection is local to this machine. When the command finishes and Vite reports `built in`, reload the preview page. If the preview server is already running, do not start a second copy.
 
 Run the full unit suite and make a production build with:
 
@@ -35,7 +38,7 @@ npm run test:e2e
 
 `scripts/refresh.py` is the orchestration entry point. It independently collects every configured source, records source status, validates the normalized data, and writes the static inputs in `generated/`. A failure from one publisher becomes an `unavailable` or `error` entry and does not stop unrelated sources. Validation runs before any Pages artifact is uploaded, so a bad new edition cannot replace the previous successful deployment.
 
-The collectors use simple HTTP first, JSON-LD and semantic markup before fallback selectors, 20-second timeouts, three attempts, and exponential backoff. GoComics is the exception: its dated pages are rendered in a standard Playwright Chromium session, then the displayed strip asset is cached for that edition. The collectors do not fetch article bodies or make readers' browsers contact news/comic publishers. The current comic build begins with an empty comic output directory, so it does not become a permanent archive.
+The collectors use simple HTTP first, JSON-LD and semantic markup before fallback selectors, 20-second timeouts, three attempts, and exponential backoff. GoComics is the exception: its local collector attaches to a dedicated ordinary Chrome session, then caches the strip displayed on each dated page. A fresh Playwright browser remains the unattended-build fallback, but a publisher can decline that automated session. The collectors do not fetch article bodies or make readers' browsers contact news/comic publishers. The current comic build begins with an empty comic output directory, so it does not become a permanent archive.
 
 Adapters are isolated by provider:
 

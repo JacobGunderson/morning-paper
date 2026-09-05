@@ -1,19 +1,31 @@
 {
-  "build_time": "2026-09-04T16:32:31.569156-06:00",
-  "edition_date": "2026-09-04",
+  "build_time": "2026-09-05T17:11:39.028909-06:00",
+  "edition_date": "2026-09-05",
   "news": {
     "success": 17,
     "failed": 9
   },
   "comics": {
-    "success": 9,
-    "failed": 30
+    "success": 17,
+    "failed": 22
   },
   "games": {
     "success": 6,
     "failed": 2
   },
   "source_statuses": [
+    {
+      "id": "ap_world",
+      "kind": "news",
+      "status": "ok",
+      "count": 24
+    },
+    {
+      "id": "ap_china",
+      "kind": "news",
+      "status": "ok",
+      "count": 23
+    },
     {
       "id": "ap_russia_ukraine",
       "kind": "news",
@@ -27,34 +39,10 @@
       "count": 23
     },
     {
-      "id": "ap_china",
-      "kind": "news",
-      "status": "ok",
-      "count": 23
-    },
-    {
       "id": "ap_latin_america",
       "kind": "news",
       "status": "ok",
       "count": 30
-    },
-    {
-      "id": "ap_world",
-      "kind": "news",
-      "status": "ok",
-      "count": 24
-    },
-    {
-      "id": "ap_us",
-      "kind": "news",
-      "status": "ok",
-      "count": 21
-    },
-    {
-      "id": "ap_europe",
-      "kind": "news",
-      "status": "ok",
-      "count": 21
     },
     {
       "id": "ap_africa",
@@ -63,10 +51,16 @@
       "count": 29
     },
     {
-      "id": "ap_immigration",
+      "id": "ap_europe",
       "kind": "news",
       "status": "ok",
-      "count": 26
+      "count": 21
+    },
+    {
+      "id": "ap_us",
+      "kind": "news",
+      "status": "ok",
+      "count": 21
     },
     {
       "id": "ap_weather",
@@ -75,10 +69,10 @@
       "count": 26
     },
     {
-      "id": "ap_transportation",
+      "id": "ap_immigration",
       "kind": "news",
       "status": "ok",
-      "count": 30
+      "count": 26
     },
     {
       "id": "ap_education",
@@ -87,16 +81,16 @@
       "count": 29
     },
     {
+      "id": "ap_transportation",
+      "kind": "news",
+      "status": "ok",
+      "count": 30
+    },
+    {
       "id": "politico_canada",
       "kind": "news",
       "status": "error",
       "detail": "request failed after 3 attempts: https://www.politico.com/canada-politics-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/canada-politics-news-updates-analysis'\nFor more information check: https://devel"
-    },
-    {
-      "id": "politico_white_house",
-      "kind": "news",
-      "status": "error",
-      "detail": "request failed after 3 attempts: https://www.politico.com/white-house-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/white-house-news-updates-analysis'\nFor more information check: https://developer.moz"
     },
     {
       "id": "politico_congress",
@@ -105,16 +99,22 @@
       "detail": "request failed after 3 attempts: https://www.politico.com/congress-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/congress-news-updates-analysis'\nFor more information check: https://developer.mozilla.o"
     },
     {
-      "id": "politico_security",
+      "id": "politico_white_house",
       "kind": "news",
       "status": "error",
-      "detail": "request failed after 3 attempts: https://www.politico.com/defense-national-security-foreign-policy-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/defense-national-security-foreign-policy-news-updates-a"
+      "detail": "request failed after 3 attempts: https://www.politico.com/white-house-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/white-house-news-updates-analysis'\nFor more information check: https://developer.moz"
     },
     {
       "id": "politico_elections",
       "kind": "news",
       "status": "error",
       "detail": "request failed after 3 attempts: https://www.politico.com/2026-elections: Client error '403 Forbidden' for url 'https://www.politico.com/2026-elections'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/40"
+    },
+    {
+      "id": "politico_security",
+      "kind": "news",
+      "status": "error",
+      "detail": "request failed after 3 attempts: https://www.politico.com/defense-national-security-foreign-policy-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/defense-national-security-foreign-policy-news-updates-a"
     },
     {
       "id": "ap_technology",
@@ -153,6 +153,12 @@
       "detail": "request failed after 3 attempts: https://www.politico.com/energy-climate-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/energy-climate-news-updates-analysis'\nFor more information check: https://develop"
     },
     {
+      "id": "politico_tech",
+      "kind": "news",
+      "status": "error",
+      "detail": "request failed after 3 attempts: https://www.politico.com/tech-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/tech-news-updates-analysis'\nFor more information check: https://developer.mozilla.org/en-US"
+    },
+    {
       "id": "politico_health",
       "kind": "news",
       "status": "error",
@@ -165,244 +171,178 @@
       "detail": "request failed after 3 attempts: https://www.politico.com/supreme-court-legal-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/supreme-court-legal-news-updates-analysis'\nFor more information check: https"
     },
     {
-      "id": "politico_tech",
-      "kind": "news",
-      "status": "error",
-      "detail": "request failed after 3 attempts: https://www.politico.com/tech-news-updates-analysis: Client error '403 Forbidden' for url 'https://www.politico.com/tech-news-updates-analysis'\nFor more information check: https://developer.mozilla.org/en-US"
-    },
-    {
-      "id": "xkcd",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
-      "id": "beware_toddler",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
-      "id": "bizarro",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
-      "id": "edison_lee",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
-      "id": "goomer",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
-      "id": "dustin",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
-      "id": "broom_hilda",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
-      "id": "never_deader",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
-      "id": "rhymes_orange",
-      "kind": "comic",
-      "status": "ok",
-      "detail": ""
-    },
-    {
       "id": "andy_capp",
       "kind": "comic",
-      "status": "error",
-      "detail": "request failed after 3 attempts: https://www.gocomics.com/andycapp/2026/09/04: Client error '403 Forbidden' for url 'https://www.gocomics.com/andycapp/2026/09/04'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "barney_clyde",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "basic_instructions",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "big_nate",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "boondocks",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "brewster_rockit",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "calvin_hobbes",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "cornered",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "cul_de_sac",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "eek",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "f_minus",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "foxtrot",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "foxtrot_classics",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "grand_avenue",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "ink_pen",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "lio",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "lockhorns",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "looks_good",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "nancy",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "nancy_classics",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "non_sequitur",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "origins",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "unavailable",
+      "detail": "No rendered strip found in the 8-day window"
     },
     {
       "id": "ripleys",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "smbc",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "speed_bump",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "thatababy",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "tom_dancing_bug",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "wizard_id",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "wizard_id_classics",
       "kind": "comic",
-      "status": "error",
-      "detail": "Provider unavailable during representative request"
-    },
-    {
-      "id": "far_side",
-      "kind": "comic",
-      "status": "error",
-      "detail": "request failed after 3 attempts: https://www.thefarside.com/: Client error '403 Forbidden' for url 'https://www.thefarside.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "lat_mini",
@@ -450,6 +390,66 @@
       "id": "strands",
       "kind": "game",
       "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "beware_toddler",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "bizarro",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "edison_lee",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "broom_hilda",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "dustin",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "far_side",
+      "kind": "comic",
+      "status": "error",
+      "detail": "request failed after 3 attempts: https://www.thefarside.com/: Client error '403 Forbidden' for url 'https://www.thefarside.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+    },
+    {
+      "id": "goomer",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "never_deader",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "rhymes_orange",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "xkcd",
+      "kind": "comic",
+      "status": "stale",
       "detail": ""
     }
   ]

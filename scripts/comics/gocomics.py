@@ -1,8 +1,8 @@
 import asyncio
 import json
-from datetime import date
+import os
+from datetime import date, timedelta
 from pathlib import Path
-from datetime import timedelta
 
 from bs4 import BeautifulSoup
 from scripts.news.base import HttpClient
@@ -18,12 +18,35 @@ async def collect_all(sources: list[dict], day: date, output_dir: Path) -> list[
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
     )
-    stdout, stderr = await process.communicate(json.dumps(sources).encode())
+    assert process.stdin and process.stdout and process.stderr
+    process.stdin.write(json.dumps(sources).encode())
+    await process.stdin.drain()
+    process.stdin.close()
+
+    async def relay_progress() -> str:
+        lines: list[str] = []
+        while line := await process.stderr.readline():
+            text = line.decode(errors="replace")
+            lines.append(text)
+            print(text, end="", flush=True)
+        return "".join(lines)
+
+    progress_task = asyncio.create_task(relay_progress())
+    stdout = await process.stdout.read()
+    await process.wait()
+    stderr = (await progress_task).encode()
     if process.returncode != 0:
         detail = stderr.decode(errors="replace").strip()[-240:] or "Rendered collector failed"
+        if os.environ.get("MORNING_PAPER_CDP_URL"):
+            raise RuntimeError(detail)
         return [ComicResult(source["id"], source["title"], source["provider"], None, source["base_url"], [], "error", detail) for source in sources]
     try:
         values = json.loads(stdout)
+        if os.environ.get("MORNING_PAPER_CDP_URL") and not any(
+            value.get("status") in {"ok", "stale"} for value in values
+        ):
+            details = next((value.get("detail") for value in values if value.get("detail")), "No strip diagnostic was returned")
+            raise RuntimeError(f"The dedicated Chrome session collected zero GoComics strips. {details}")
         return [ComicResult(**value) for value in values]
     except (json.JSONDecodeError, TypeError) as exc:
         detail = f"Invalid rendered collector result: {exc}"

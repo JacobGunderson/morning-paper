@@ -14,6 +14,10 @@ const input = await new Promise((resolve, reject) => {
 });
 const sources = JSON.parse(input);
 
+function progress(message) {
+  process.stderr.write(`[GoComics] ${message}\n`);
+}
+
 async function localChromeExecutable() {
   const configured = process.env.MORNING_PAPER_CHROME;
   const macosChrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
@@ -50,25 +54,43 @@ function imageKind(bytes) {
 
 async function collectOne(context, source) {
   const page = await context.newPage();
+  progress(`${source.title}: starting`);
   try {
     const edition = new Date(`${editionDate}T12:00:00Z`);
+    let currentEditionDetail = '';
     for (let offset = 0; offset < 8; offset += 1) {
       const candidate = new Date(edition);
       candidate.setUTCDate(candidate.getUTCDate() - offset);
       const pageUrl = datedUrl(source.slug, candidate);
       try {
-        const response = await page.goto(pageUrl, { waitUntil: 'domcontentloaded', timeout: 30_000 });
-        if (!response?.ok()) continue;
+        const response = await page.goto(pageUrl, { waitUntil: 'domcontentloaded', timeout: 15_000 });
+        if (!response?.ok()) {
+          if (offset === 0) currentEditionDetail = `Current page returned HTTP ${response?.status() ?? 'unknown'}`;
+          continue;
+        }
         const label = longDate(candidate);
-        const image = page.locator(`main img[alt$="for ${label}"]`).first();
-        await image.waitFor({ state: 'attached', timeout: 12_000 });
+        const image = page.locator(`img[alt$="for ${label}"]`).first();
+        await image.waitFor({ state: 'attached', timeout: 5_000 });
         const imageUrl = await image.evaluate(node => node.currentSrc || node.src);
-        if (!imageUrl || !imageUrl.startsWith('https://')) continue;
-        const asset = await context.request.get(imageUrl, { headers: { referer: pageUrl }, timeout: 30_000 });
-        if (!asset.ok()) continue;
+        if (!imageUrl || !imageUrl.startsWith('https://')) {
+          if (offset === 0) currentEditionDetail = 'Current page did not expose a strip image URL';
+          continue;
+        }
+        // Fetch through the attached Chrome tab as well. This keeps both the page
+        // request and the asset request in the ordinary browser network session.
+        const asset = await page.goto(imageUrl, {
+          waitUntil: 'commit', timeout: 15_000, referer: pageUrl,
+        });
+        if (!asset?.ok()) {
+          if (offset === 0) currentEditionDetail = `Current strip image returned HTTP ${asset?.status() ?? 'unknown'}`;
+          continue;
+        }
         const bytes = await asset.body();
         const kind = imageKind(bytes);
-        if (!kind || bytes.length < 4_000) continue;
+        if (!kind || bytes.length < 4_000) {
+          if (offset === 0) currentEditionDetail = 'Current strip response was not a valid image';
+          continue;
+        }
         const digest = crypto.createHash('sha256').update(bytes).digest('hex').slice(0, 10);
         const filename = `${source.id}-1-${digest}.${kind[0]}`;
         await fs.writeFile(path.join(outputDir, filename), bytes);
@@ -82,14 +104,19 @@ async function collectOne(context, source) {
           status: offset === 0 ? 'ok' : 'stale',
           detail: '',
         };
-      } catch {
+      } catch (error) {
+        if (offset === 0) {
+          const message = error instanceof Error ? error.message.split('\n')[0] : String(error);
+          currentEditionDetail = `Current page: ${message}`;
+        }
         // A missing edition is normal for archived and non-daily strips.
       }
     }
     return {
       id: source.id, name: source.title, provider: source.provider,
       published_date: null, source_url: source.base_url, images: [],
-      status: 'unavailable', detail: 'No rendered strip found in the 8-day window',
+      status: 'unavailable',
+      detail: currentEditionDetail || 'No rendered strip found in the 8-day window',
     };
   } finally {
     await page.close();
@@ -97,20 +124,57 @@ async function collectOne(context, source) {
 }
 
 await fs.mkdir(outputDir, { recursive: true });
-const executablePath = await localChromeExecutable();
-const browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
+const cdpUrl = process.env.MORNING_PAPER_CDP_URL;
+let browser;
+let context;
+
+if (cdpUrl) {
+  progress(`Connecting to the dedicated Chrome session at ${cdpUrl}`);
+  let lastConnectionError;
+  for (let attempt = 0; attempt < 20 && !browser; attempt += 1) {
+    try {
+      browser = await chromium.connectOverCDP(cdpUrl, { timeout: 1_000 });
+    } catch (error) {
+      lastConnectionError = error;
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+  }
+  if (!browser) {
+    const message = lastConnectionError instanceof Error
+      ? lastConnectionError.message.split('\n')[0]
+      : String(lastConnectionError);
+    throw new Error(`Could not connect to the GoComics browser. Run "npm run comics:browser" first. ${message}`);
+  }
+  [context] = browser.contexts();
+  if (!context) throw new Error('The connected GoComics browser has no usable browser context.');
+} else {
+  const executablePath = await localChromeExecutable();
+  const headless = executablePath ? process.env.MORNING_PAPER_HEADLESS === '1' : true;
+  progress(`Launching ${headless ? 'headless' : 'visible'} Chrome`);
+  browser = await chromium.launch({ headless, ...(executablePath ? { executablePath } : {}) });
+  context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+}
+
 try {
-  const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const results = new Array(sources.length);
   let next = 0;
   async function worker() {
     while (next < sources.length) {
       const index = next++;
       results[index] = await collectOne(context, sources[index]);
+      const detail = results[index].detail ? ` (${results[index].detail})` : '';
+      progress(`${sources[index].title}: ${results[index].status}${detail}`);
     }
   }
-  await Promise.all(Array.from({ length: Math.min(4, sources.length) }, worker));
+  const defaultWorkers = cdpUrl ? 2 : 4;
+  const configuredWorkers = Number.parseInt(process.env.MORNING_PAPER_COMIC_WORKERS || '', 10);
+  const workerCount = Number.isFinite(configuredWorkers) && configuredWorkers > 0
+    ? configuredWorkers
+    : defaultWorkers;
+  await Promise.all(Array.from({ length: Math.min(workerCount, sources.length) }, worker));
   process.stdout.write(JSON.stringify(results));
 } finally {
+  // For a launched browser this closes Chrome; for a connected browser Playwright
+  // only disconnects and leaves the dedicated Chrome window/profile running.
   await browser.close();
 }

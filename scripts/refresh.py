@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import asyncio
+import atexit
 import json
 import os
+import shutil
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -43,6 +45,7 @@ async def main() -> None:
     client = HttpClient()
     statuses: list[dict] = []
     limiter = asyncio.Semaphore(5)
+    print(f"Refreshing the {day.isoformat()} edition…", flush=True)
 
     async def limited(coro):
         async with limiter:
@@ -65,6 +68,7 @@ async def main() -> None:
             statuses.append({"id": source["id"], "kind": "news", "status": "error", "detail": str(exc)[:240]})
             return source["id"], []
 
+    print(f"Collecting {len(sources)} news sources…", flush=True)
     news_pairs = await asyncio.gather(*(news_source(source) for source in sources))
     assigned = assign_unique(dict(news_pairs), sources)
     source_by_id = {source["id"]: source for source in sources}
@@ -97,12 +101,14 @@ async def main() -> None:
             "subsections": subsections,
         })
 
-    # Start every comic edition clean. Individual failures remain visible as source links.
-    comics_dir = GENERATED / "comics"
+    # Build images away from the current edition. An interrupted or invalid refresh
+    # must never erase the last working comic sheet.
+    staging_root = ROOT / "work" / f"edition-next-{os.getpid()}"
+    comics_dir = staging_root / "comics"
+    shutil.rmtree(staging_root, ignore_errors=True)
     comics_dir.mkdir(parents=True, exist_ok=True)
-    for existing in comics_dir.iterdir():
-        if existing.is_file() and existing.name != ".gitkeep":
-            existing.unlink()
+    (comics_dir / ".gitkeep").touch()
+    atexit.register(shutil.rmtree, staging_root, ignore_errors=True)
     comic_sources = load_yaml("comics.yaml")["comics"]
     if len({source["id"] for source in comic_sources}) != len(comic_sources):
         raise ValueError("Duplicate comic ids in config/comics.yaml")
@@ -119,7 +125,9 @@ async def main() -> None:
     async def comic_provider(provider: str) -> list[ComicResult]:
         provider_sources = [source for source in comic_sources if source["provider"] == provider]
         if provider == "gocomics":
+            print(f"Rendering {len(provider_sources)} GoComics strips in Chrome…", flush=True)
             results = await gocomics.collect_all(provider_sources, day, comics_dir)
+            print(f"GoComics complete: {sum(result.status in {'ok', 'stale'} for result in results)} collected.", flush=True)
             statuses.extend({"id": result.id, "kind": "comic", "status": result.status, "detail": result.detail[:240]} for result in results)
             return results
         first = await comic_source(provider_sources[0])
@@ -131,6 +139,7 @@ async def main() -> None:
             return [first, *remainder]
         return [first, *await asyncio.gather(*(comic_source(source) for source in provider_sources[1:]))]
 
+    print(f"Collecting {len(comic_sources)} comics…", flush=True)
     provider_results = await asyncio.gather(*(comic_provider(provider) for provider in ("gocomics", "comics_kingdom", "farside", "xkcd")))
     comics = sorted([comic for group in provider_results for comic in group], key=lambda comic: sort_key(comic.name))
     comics_data = [comic.public() for comic in comics]
@@ -142,6 +151,7 @@ async def main() -> None:
         statuses.append({"id": source["id"], "kind": "game", "status": result["status"], "detail": result.get("detail", "")[:240]})
         return result
 
+    print("Collecting games…", flush=True)
     external = await asyncio.gather(*(external_game(source) for source in games_config["external"]))
     wordle, connections, strands = await asyncio.gather(*(limited(nyt.collect(game, day, client)) for game in ("wordle", "connections", "strands")))
     for game, result in (("wordle", wordle), ("connections", connections), ("strands", strands)):
@@ -149,7 +159,7 @@ async def main() -> None:
     games_index = {"date": day.isoformat(), "external": [{key: value for key, value in game.items() if key != "detail"} for game in external]}
 
     validate_news(news_data)
-    validate_comics(comics_data, GENERATED)
+    validate_comics(comics_data, staging_root)
     validate_games(wordle, connections, strands)
     manifest = {
         "build_time": now.isoformat(), "edition_date": day.isoformat(),
@@ -158,6 +168,19 @@ async def main() -> None:
         "games": {"success": sum(s["kind"] == "game" and s["status"] == "ok" for s in statuses), "failed": sum(s["kind"] == "game" and s["status"] != "ok" for s in statuses)},
         "source_statuses": statuses,
     }
+    print("Writing the static edition…", flush=True)
+    live_comics_dir = GENERATED / "comics"
+    previous_comics_dir = GENERATED / ".comics-previous"
+    shutil.rmtree(previous_comics_dir, ignore_errors=True)
+    if live_comics_dir.exists():
+        live_comics_dir.replace(previous_comics_dir)
+    try:
+        comics_dir.replace(live_comics_dir)
+    except BaseException:
+        if previous_comics_dir.exists() and not live_comics_dir.exists():
+            previous_comics_dir.replace(live_comics_dir)
+        raise
+    shutil.rmtree(previous_comics_dir, ignore_errors=True)
     write_json(GENERATED / "site.json", site_config)
     write_json(GENERATED / "news.json", news_data)
     write_json(GENERATED / "comics.json", comics_data)

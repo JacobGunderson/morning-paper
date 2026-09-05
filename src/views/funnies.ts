@@ -17,6 +17,7 @@ export function renderFunnies(comics: Comic[] | null): HTMLElement {
   const sheet = document.createElement('div');
   sheet.className = 'comic-sheet';
   if (!comics?.length) sheet.innerHTML = '<p class="notice">TODAY\'S COMICS ARE UNAVAILABLE.</p>';
+  const notUpdated = comics?.filter(comic => comic.status !== 'ok') ?? [];
   let availableIndex = 0;
   comics?.forEach(comic => {
     const item = document.createElement('article');
@@ -29,5 +30,11 @@ export function renderFunnies(comics: Comic[] | null): HTMLElement {
     sheet.append(item);
   });
   view.append(sheet);
+  if (notUpdated.length) {
+    const unavailable = document.createElement('section');
+    unavailable.className = 'comic-updates-missing';
+    unavailable.innerHTML = `<h2>Comics that didn’t update today</h2><p>These strips did not publish a fresh edition or could not be collected. Their source pages are linked below.</p><ul>${notUpdated.map(comic => `<li><a href="${escapeHtml(comic.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(comic.name)}</a>${comic.status === 'stale' ? ' <span>LAST AVAILABLE EDITION SHOWN</span>' : ''}</li>`).join('')}</ul>`;
+    view.append(unavailable);
+  }
   return view;
 }
