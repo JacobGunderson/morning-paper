@@ -6,7 +6,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/andycapp",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "barney_clyde",
@@ -15,7 +15,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/barneyandclyde",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "basic_instructions",
@@ -24,14 +24,14 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/basicinstructions",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "beware_toddler",
     "name": "Beware of Toddler",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-04",
-    "source_url": "https://comicskingdom.com/beware-of-toddler/2026-09-04",
+    "published_date": "2026-09-05",
+    "source_url": "https://comicskingdom.com/beware-of-toddler/2026-09-05",
     "images": [
       "comics/beware_toddler-1-4450812649.jpg"
     ],
@@ -44,16 +44,16 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/bignate",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "bizarro",
     "name": "Bizarro",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-04",
-    "source_url": "https://comicskingdom.com/bizarro/2026-09-04",
+    "published_date": "2026-09-05",
+    "source_url": "https://comicskingdom.com/bizarro/2026-09-05",
     "images": [
-      "comics/bizarro-1-9a38f71df9.jpg"
+      "comics/bizarro-1-d2397a2a0a.jpg"
     ],
     "status": "ok"
   },
@@ -64,7 +64,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/boondocks",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "brewster_rockit",
@@ -73,17 +73,17 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/brewsterrockit",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "edison_lee",
     "name": "The Brilliant Mind of Edison Lee",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-04",
-    "source_url": "https://comicskingdom.com/brilliant-mind-of-edison-lee/2026-09-04",
+    "published_date": "2026-09-05",
+    "source_url": "https://comicskingdom.com/brilliant-mind-of-edison-lee/2026-09-05",
     "images": [
-      "comics/edison_lee-1-5105ac5c06.jpg",
-      "comics/edison_lee-2-cf90582088.jpg"
+      "comics/edison_lee-1-3e4432e60d.jpg",
+      "comics/edison_lee-2-87728780eb.jpg"
     ],
     "status": "ok"
   },
@@ -91,10 +91,10 @@
     "id": "broom_hilda",
     "name": "Broom-Hilda",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-04",
-    "source_url": "https://comicskingdom.com/broomhilda/2026-09-04",
+    "published_date": "2026-09-05",
+    "source_url": "https://comicskingdom.com/broomhilda/2026-09-05",
     "images": [
-      "comics/broom_hilda-1-2c9bb684b2.jpg"
+      "comics/broom_hilda-1-993ab7cf72.jpg"
     ],
     "status": "ok"
   },
@@ -105,7 +105,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/calvinandhobbes",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "cornered",
@@ -114,7 +114,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/cornered",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "cul_de_sac",
@@ -123,18 +123,17 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/culdesac",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "dustin",
     "name": "Dustin",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-04",
-    "source_url": "https://comicskingdom.com/dustin/2026-09-04",
+    "published_date": "2026-09-05",
+    "source_url": "https://comicskingdom.com/dustin/2026-09-05",
     "images": [
-      "comics/dustin-1-6eb4cf38d4.jpg",
-      "comics/dustin-2-94c1a2a0ea.jpg",
-      "comics/dustin-3-a0bec081f1.jpg"
+      "comics/dustin-1-9aa5e42b0a.jpg",
+      "comics/dustin-2-9e86bc3e9f.jpg"
     ],
     "status": "ok"
   },
@@ -145,7 +144,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/eek",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "f_minus",
@@ -154,7 +153,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/fminus",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "far_side",
@@ -172,7 +171,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/foxtrot",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "foxtrot_classics",
@@ -181,16 +180,16 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/foxtrotclassics",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "goomer",
     "name": "Goomer",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-04",
-    "source_url": "https://comicskingdom.com/goomer/2026-09-04",
+    "published_date": "2026-09-05",
+    "source_url": "https://comicskingdom.com/goomer/2026-09-05",
     "images": [
-      "comics/goomer-1-6e6b943931.jpg"
+      "comics/goomer-1-93f4e2ba06.jpg"
     ],
     "status": "ok"
   },
@@ -201,7 +200,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/grand-avenue",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "ink_pen",
@@ -210,7 +209,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/inkpen",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "lio",
@@ -219,7 +218,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/lio",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "lockhorns",
@@ -228,7 +227,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/lockhorns",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "looks_good",
@@ -237,7 +236,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/looks-good-on-paper",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "nancy",
@@ -246,7 +245,7 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/nancy",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "nancy_classics",
@@ -255,16 +254,16 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/nancy-classics",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "never_deader",
     "name": "Never Been Deader",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-04",
-    "source_url": "https://comicskingdom.com/never-been-deader/2026-09-04",
+    "published_date": "2026-09-05",
+    "source_url": "https://comicskingdom.com/never-been-deader/2026-09-05",
     "images": [
-      "comics/never_deader-1-9bbb77b297.jpg"
+      "comics/never_deader-1-64d0eca08a.jpg"
     ],
     "status": "ok"
   },
@@ -272,10 +271,12 @@
     "id": "non_sequitur",
     "name": "Non Sequitur",
     "provider": "gocomics",
-    "published_date": null,
-    "source_url": "https://www.gocomics.com/nonsequitur",
-    "images": [],
-    "status": "error"
+    "published_date": "2026-09-04",
+    "source_url": "https://www.gocomics.com/nonsequitur/2026/09/04",
+    "images": [
+      "comics/non_sequitur-1-bf683962cb.gif"
+    ],
+    "status": "ok"
   },
   {
     "id": "origins",
@@ -284,16 +285,16 @@
     "published_date": null,
     "source_url": "https://www.gocomics.com/origins-of-the-sunday-comics",
     "images": [],
-    "status": "error"
+    "status": "unavailable"
   },
   {
     "id": "rhymes_orange",
     "name": "Rhymes with Orange",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-04",
-    "source_url": "https://comicskingdom.com/rhymes-with-orange/2026-09-04",
+    "published_date": "2026-09-05",
+    "source_url": "https://comicskingdom.com/rhymes-with-orange/2026-09-05",
     "images": [
-      "comics/rhymes_orange-1-5f0d728711.jpg"
+      "comics/rhymes_orange-1-9aa1fda9b3.jpg"
     ],
     "status": "ok"
   },
@@ -301,64 +302,78 @@
     "id": "ripleys",
     "name": "Ripley's Believe It or Not!",
     "provider": "gocomics",
-    "published_date": null,
-    "source_url": "https://www.gocomics.com/ripleysbelieveitornot",
-    "images": [],
-    "status": "error"
+    "published_date": "2026-09-04",
+    "source_url": "https://www.gocomics.com/ripleysbelieveitornot/2026/09/04",
+    "images": [
+      "comics/ripleys-1-71dd3d2ad9.gif"
+    ],
+    "status": "ok"
   },
   {
     "id": "smbc",
     "name": "Saturday Morning Breakfast Cereal",
     "provider": "gocomics",
-    "published_date": null,
-    "source_url": "https://www.gocomics.com/saturday-morning-breakfast-cereal",
-    "images": [],
-    "status": "error"
+    "published_date": "2026-09-04",
+    "source_url": "https://www.gocomics.com/saturday-morning-breakfast-cereal/2026/09/04",
+    "images": [
+      "comics/smbc-1-4eee613bf3.gif"
+    ],
+    "status": "ok"
   },
   {
     "id": "speed_bump",
     "name": "Speed Bump",
     "provider": "gocomics",
-    "published_date": null,
-    "source_url": "https://www.gocomics.com/speedbump",
-    "images": [],
-    "status": "error"
+    "published_date": "2026-09-04",
+    "source_url": "https://www.gocomics.com/speedbump/2026/09/04",
+    "images": [
+      "comics/speed_bump-1-dbf0d583b4.gif"
+    ],
+    "status": "ok"
   },
   {
     "id": "thatababy",
     "name": "Thatababy",
     "provider": "gocomics",
-    "published_date": null,
-    "source_url": "https://www.gocomics.com/thatababy",
-    "images": [],
-    "status": "error"
+    "published_date": "2026-09-04",
+    "source_url": "https://www.gocomics.com/thatababy/2026/09/04",
+    "images": [
+      "comics/thatababy-1-107f701ce8.gif"
+    ],
+    "status": "ok"
   },
   {
     "id": "tom_dancing_bug",
     "name": "Tom the Dancing Bug",
     "provider": "gocomics",
-    "published_date": null,
-    "source_url": "https://www.gocomics.com/tomthedancingbug",
-    "images": [],
-    "status": "error"
+    "published_date": "2026-09-04",
+    "source_url": "https://www.gocomics.com/tomthedancingbug/2026/09/04",
+    "images": [
+      "comics/tom_dancing_bug-1-ae54d5df6a.gif"
+    ],
+    "status": "ok"
   },
   {
     "id": "wizard_id",
     "name": "Wizard of Id",
     "provider": "gocomics",
-    "published_date": null,
-    "source_url": "https://www.gocomics.com/wizardofid",
-    "images": [],
-    "status": "error"
+    "published_date": "2026-09-04",
+    "source_url": "https://www.gocomics.com/wizardofid/2026/09/04",
+    "images": [
+      "comics/wizard_id-1-d496a6556a.gif"
+    ],
+    "status": "ok"
   },
   {
     "id": "wizard_id_classics",
     "name": "Wizard of Id Classics",
     "provider": "gocomics",
-    "published_date": null,
-    "source_url": "https://www.gocomics.com/wizard-of-id-classics",
-    "images": [],
-    "status": "error"
+    "published_date": "2026-09-04",
+    "source_url": "https://www.gocomics.com/wizard-of-id-classics/2026/09/04",
+    "images": [
+      "comics/wizard_id_classics-1-97b0521301.gif"
+    ],
+    "status": "ok"
   },
   {
     "id": "xkcd",
@@ -369,6 +384,6 @@
     "images": [
       "comics/xkcd-1-68680a9690.png"
     ],
-    "status": "ok"
+    "status": "stale"
   }
 ]
