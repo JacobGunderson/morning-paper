@@ -59,11 +59,13 @@ main { min-height: 62vh; }
 .comic-updates-missing ul { margin: 0; padding-left: 20px; }
 .comic-updates-missing li { break-inside: avoid; margin: 0 0 8px; }
 .comic-updates-missing li span { color: var(--muted); font-size: .7rem; letter-spacing: .04em; }
-.game-picker { display: flex; position: sticky; top: 52px; z-index: 4; overflow-x: auto; border-bottom: 1px solid var(--ink); background: #fff; scrollbar-width: thin; }
-.game-picker button { flex: 0 0 auto; min-height: 48px; border: 0; background: transparent; padding: 0 18px; color: var(--muted); cursor: pointer; font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; }
-.game-picker button[aria-selected="true"] { background: var(--ink); color: #fff; }
-.game-stage { max-width: 920px; margin: 38px auto 0; }
-.game-panel { text-align: center; }
+.games-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 54px; }
+.games-toc-button { flex: 1 1 170px; min-height: 48px; border: 1px solid var(--ink); border-radius: 0; background: #fff; color: var(--ink); padding: 10px 14px; cursor: pointer; font: inherit; font-size: .78rem; letter-spacing: .06em; text-align: left; text-transform: uppercase; }
+.games-toc-button:hover { background: #f1f1f1; }
+.games-toc-button:focus-visible { position: relative; z-index: 1; }
+.game-stage { max-width: 920px; margin: 0 auto; }
+.game-panel { scroll-margin-top: 72px; border-top: 3px solid var(--ink); padding: 34px 0 46px; text-align: center; }
+.game-panel-title { margin: 0 0 24px; font-size: clamp(1.25rem, 3vw, 1.75rem); text-transform: uppercase; }
 .external-game iframe { display: block; width: 100%; height: min(72vh, 720px); border: 1px solid var(--rule); }
 .game-message { min-height: 1.5rem; color: var(--muted); font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-align: center; }
 .wordle-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; width: min(100%, 350px); margin: 0 auto 22px; }
@@ -117,8 +119,9 @@ main { min-height: 62vh; }
   .comic-sheet { grid-template-columns: 1fr; gap: 38px; }
   .comic header { gap: 10px; }
   .comic-byline { font-size: .68rem; white-space: normal; }
-  .game-picker { top: 48px; margin-inline: -12px; }
-  .game-stage { margin-top: 26px; }
+  .games-toc { margin-bottom: 38px; }
+  .games-toc-button { flex-basis: 140px; min-height: 44px; }
+  .game-panel { scroll-margin-top: 62px; padding: 28px 0 38px; }
   .external-game iframe { height: 660px; }
   .connection-tile, .solved-group { min-height: 72px; }
   .connections-grid { gap: 5px; }

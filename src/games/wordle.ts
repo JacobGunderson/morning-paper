@@ -49,7 +49,7 @@ export function createWordle(data: WordleData | null): HTMLElement {
     keyboard.append(rowElement);
   });
   const keyHandler = (event: KeyboardEvent) => {
-    if (!root.isConnected || !root.closest('.game-panel:not([hidden])')) return;
+    if (!root.isConnected || !root.contains(document.activeElement)) return;
     if (event.key === 'Enter') input('ENTER'); else if (event.key === 'Backspace') input('BACKSPACE'); else input(event.key.toUpperCase());
   };
   window.addEventListener('keydown', keyHandler);

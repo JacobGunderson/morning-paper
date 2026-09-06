@@ -9,7 +9,7 @@ export type GamePayloads = { games: GamesData | null; wordle: WordleData | null;
 export function renderGames(data: GamePayloads): HTMLElement {
   const view = document.createElement('section'); view.className = 'view games-view';
   view.innerHTML = '<div class="section-header"><span>04</span><h1>Games</h1></div>';
-  const picker = document.createElement('div'); picker.className = 'game-picker'; picker.setAttribute('role', 'tablist'); picker.setAttribute('aria-label', 'Choose a game');
+  const picker = document.createElement('nav'); picker.className = 'games-toc'; picker.setAttribute('aria-label', 'Games contents');
   const stage = document.createElement('div'); stage.className = 'game-stage';
   const games = [
     { id: 'wordle', title: 'Wordle', create: () => createWordle(data.wordle) },
@@ -27,20 +27,14 @@ export function renderGames(data: GamePayloads): HTMLElement {
       return panel;
     }}))
   ];
-  const panels = new Map<string, HTMLElement>();
-  const select = (id: string) => {
-    let panel = panels.get(id);
-    if (!panel) {
-      const game = games.find(candidate => candidate.id === id)!; panel = game.create(); panel.classList.add('game-panel'); panel.id = `game-${id}`; panel.setAttribute('role', 'tabpanel'); panels.set(id, panel); stage.append(panel);
-    }
-    panels.forEach((element, key) => element.hidden = key !== id);
-    picker.querySelectorAll('button').forEach(tab => { const selected = tab.dataset.game === id; tab.setAttribute('aria-selected', String(selected)); tab.tabIndex = selected ? 0 : -1; });
-    localStorage.setItem('morning-paper-game', id);
-  };
   games.forEach(game => {
-    const tab = button(game.title); tab.dataset.game = game.id; tab.setAttribute('role', 'tab'); tab.setAttribute('aria-controls', `game-${game.id}`); tab.onclick = () => select(game.id); picker.append(tab);
+    const contentsButton = button(game.title); contentsButton.className = 'games-toc-button'; contentsButton.dataset.gameTarget = `game-${game.id}`;
+    contentsButton.onclick = () => document.getElementById(contentsButton.dataset.gameTarget ?? '')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    picker.append(contentsButton);
+    const panel = document.createElement('section'); panel.className = 'game-panel'; panel.id = `game-${game.id}`;
+    const heading = document.createElement('h2'); heading.className = 'game-panel-title'; heading.textContent = game.title;
+    panel.append(heading, game.create()); stage.append(panel);
   });
   view.append(picker, stage);
-  const saved = localStorage.getItem('morning-paper-game'); select(games.some(game => game.id === saved) ? saved! : 'wordle');
   return view;
 }

@@ -5,7 +5,7 @@ test('hash navigation works without horizontal overflow', async ({ page }) => {
   await expect(page.locator('nav')).toBeVisible();
   await page.getByRole('link', { name: /games/i }).click();
   await expect(page).toHaveURL(/#games$/);
-  await page.getByRole('tab', { name: 'Strands' }).click();
+  await page.getByRole('button', { name: 'Strands' }).click();
   await expect(page.locator('.strands')).toBeVisible();
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
   expect(overflow).toBe(false);
@@ -13,7 +13,7 @@ test('hash navigation works without horizontal overflow', async ({ page }) => {
 
 test('Strands pointer path updates and page remains fixed during drag', async ({ page }) => {
   await page.goto('/#games');
-  await page.getByRole('tab', { name: 'Strands' }).click();
+  await page.getByRole('button', { name: 'Strands' }).click();
   const cells = page.locator('.strand-cell');
   if (await cells.count() > 1) {
     const first = await cells.nth(0).boundingBox(); const second = await cells.nth(1).boundingBox();
