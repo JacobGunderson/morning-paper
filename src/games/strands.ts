@@ -1,6 +1,6 @@
 import type { StrandsData } from '../types';
 import { button } from '../lib';
-import { adjacent, cellsBetween, traceWord } from './logic';
+import { adjacent, traceWord } from './logic';
 
 const cellKey = ([row, column]: [number, number]) => `${row},${column}`;
 
@@ -13,7 +13,6 @@ export function createStrands(data: StrandsData | null): HTMLElement {
   const gridData = data.grid;
   const answers = data.answers;
   const found = new Set<string>(); const hinted = new Set<string>(); let active: Array<[number, number]> = [];
-  let pointerId: number | null = null; let pointerStart: [number, number] | null = null; let dragging = false; let suppressClick = false;
   const earned = { value: 0 };
   const theme = document.createElement('p'); theme.className = 'strands-theme'; theme.innerHTML = `TODAY'S THEME<br><strong>${data.theme}</strong>`;
   const board = document.createElement('div'); board.className = 'strands-board'; board.style.setProperty('--rows', String(gridData.length));
@@ -51,22 +50,11 @@ export function createStrands(data: StrandsData | null): HTMLElement {
     progress.textContent = `${found.size} OF ${answers.length} THEME WORDS FOUND`;
     hintStatus.textContent = hint.disabled ? `HINTS: ${earned.value} OF 3 NON-THEME WORDS` : 'HINT READY';
   };
-  const coordinateFromEvent = (event: PointerEvent): [number, number] | null => {
-    const directTarget = event.target instanceof Element ? event.target.closest<HTMLButtonElement>('.strand-cell') : null;
-    const target = directTarget ?? document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLButtonElement>('.strand-cell');
-    if (!target || !board.contains(target)) return null;
-    return [Number(target.dataset.row), Number(target.dataset.column)];
-  };
   const extendOne = (coordinate: [number, number]) => {
     const existing = active.findIndex(cell => cellKey(cell) === cellKey(coordinate));
     if (existing === active.length - 2) { active.pop(); refreshLines(); return; }
     if (existing >= 0 || (active.length && !adjacent(active.at(-1)!, coordinate))) return;
     active.push(coordinate); refreshLines();
-  };
-  const extend = (coordinate: [number, number]) => {
-    const previous = active.at(-1);
-    if (!previous || adjacent(previous, coordinate)) { extendOne(coordinate); return; }
-    cellsBetween(previous, coordinate).forEach(extendOne);
   };
   const submit = () => {
     const word = traceWord(gridData, active).toUpperCase(); const answer = answers.find(candidate => candidate.word.toUpperCase() === word);
@@ -87,36 +75,16 @@ export function createStrands(data: StrandsData | null): HTMLElement {
   };
   const selectByClick = (coordinate: [number, number]) => {
     if (!active.length) { active = [coordinate]; message.textContent = 'SELECT CONNECTING LETTERS, THEN CHECK WORD'; refreshLines(); return; }
-    const before = active.length; extend(coordinate);
+    const before = active.length; extendOne(coordinate);
     if (active.length === before && cellKey(active.at(-1)!) !== cellKey(coordinate)) message.textContent = 'NEXT LETTER MUST TOUCH THE SELECTION';
     const word = traceWord(gridData, active).toUpperCase();
     if (answers.some(answer => !found.has(answer.word) && answer.word.toUpperCase() === word) || (data.valid_words ?? []).includes(word)) submit();
   };
-  const beginPointerPath = (event: PointerEvent, coordinate: [number, number]) => {
-    pointerId = event.pointerId; pointerStart = coordinate; dragging = false;
-  };
-  board.onpointermove = event => {
-    if (pointerId !== event.pointerId || !pointerStart) return;
-    const coordinate = coordinateFromEvent(event); if (!coordinate) return;
-    if (!dragging && cellKey(coordinate) !== cellKey(pointerStart)) { dragging = true; active = [pointerStart]; board.setPointerCapture(event.pointerId); }
-    if (dragging) { event.preventDefault(); extend(coordinate); }
-  };
-  const finish = (event: PointerEvent) => {
-    if (pointerId !== event.pointerId) return;
-    if (dragging) { suppressClick = true; submit(); }
-    if (board.hasPointerCapture(event.pointerId)) board.releasePointerCapture(event.pointerId);
-    pointerId = null; pointerStart = null; dragging = false;
-  };
-  board.onpointerup = finish; board.onpointercancel = event => { pointerId = null; pointerStart = null; dragging = false; event.preventDefault(); };
-  // The individual cells own click handling. Pointer capture changes the event target
-  // during a drag, so relying on one delegated board click made taps unreliable.
+  // Each tile owns its grid coordinate, rather than its letter. That means duplicate
+  // letters remain independently selectable and the board is reliably click-only.
   cells.forEach((cell, key) => {
     const [row, column] = key.split(',').map(Number) as [number, number];
-    cell.onpointerdown = event => beginPointerPath(event, [row, column]);
-    cell.onclick = () => {
-      if (suppressClick) { suppressClick = false; return; }
-      selectByClick([row, column]);
-    };
+    cell.onclick = () => selectByClick([row, column]);
   });
   check.onclick = submit;
   clear.onclick = () => { active = []; message.textContent = ''; refreshLines(); };
