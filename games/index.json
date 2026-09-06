@@ -10,6 +10,14 @@
       "status": "ok"
     },
     {
+      "id": "daily_crossword",
+      "title": "Daily Crossword",
+      "provider": "static",
+      "url": "https://solvethecrossword.com/",
+      "embed_url": "./games/regular-crossword.html",
+      "status": "ok"
+    },
+    {
       "id": "blueberry",
       "title": "Blueberry",
       "provider": "circle9",

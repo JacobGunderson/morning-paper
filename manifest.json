@@ -10,7 +10,7 @@
     "failed": 13
   },
   "games": {
-    "success": 4,
+    "success": 8,
     "failed": 0
   },
   "source_statuses": [
@@ -477,6 +477,12 @@
       "detail": ""
     },
     {
+      "id": "daily_crossword",
+      "kind": "game",
+      "status": "ok",
+      "detail": ""
+    },
+    {
       "id": "blueberry_trio",
       "kind": "game",
       "status": "ok",
@@ -490,6 +496,24 @@
     },
     {
       "id": "twinominoes",
+      "kind": "game",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "wordle",
+      "kind": "game",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "connections",
+      "kind": "game",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "strands",
       "kind": "game",
       "status": "ok",
       "detail": ""
