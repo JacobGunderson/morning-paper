@@ -1,5 +1,5 @@
 import './styles.css';
-import type { Comic, ConnectionsData, GamesData, Manifest, NewsData, StrandsData, WordleData } from './types';
+import type { Comic, GamesData, Manifest, NewsData } from './types';
 import { formatEdition, loadJson } from './lib';
 import { renderNews } from './views/news';
 import { renderFunnies } from './views/funnies';
@@ -10,9 +10,8 @@ const routes: Route[] = ['news', 'commentary', 'funnies', 'games'];
 const routeNumber: Record<Route, string> = { news: '01', commentary: '02', funnies: '03', games: '04' };
 
 async function boot() {
-  const [site, manifest, news, comics, games, wordle, connections, strands] = await Promise.all([
+  const [site, manifest, news, comics, games] = await Promise.all([
     loadJson<{ site?: { title?: string; timezone?: string } }>('./site.json'), loadJson<Manifest>('./manifest.json'), loadJson<NewsData>('./news.json'), loadJson<Comic[]>('./comics.json'), loadJson<GamesData>('./games/index.json'),
-    loadJson<WordleData>('./games/wordle.json'), loadJson<ConnectionsData>('./games/connections.json'), loadJson<StrandsData>('./games/strands.json')
   ]);
   const today = manifest?.edition_date ?? new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Denver' }).format(new Date());
   const updated = manifest?.build_time ? new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'America/Denver' }).format(new Date(manifest.build_time)) : '—';
@@ -32,7 +31,7 @@ async function boot() {
     document.querySelectorAll('.primary-nav a').forEach(link => link.toggleAttribute('aria-current', (link as HTMLAnchorElement).dataset.route === route));
     if (route === 'news') content.replaceChildren(renderNews(news));
     else if (route === 'funnies') content.replaceChildren(renderFunnies(comics, today));
-    else if (route === 'games') content.replaceChildren(renderGames({ games, wordle, connections, strands }));
+    else if (route === 'games') content.replaceChildren(renderGames({ games }));
     else { const view = document.createElement('section'); view.className = 'view empty-view'; view.innerHTML = '<div class="section-header"><span>02</span><h1>Commentary</h1></div><p class="notice">NO COMMENTARY SOURCES CONFIGURED</p>'; content.replaceChildren(view); }
     window.scrollTo({ top: 0 });
   };

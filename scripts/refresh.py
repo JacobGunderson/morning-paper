@@ -19,10 +19,10 @@ if str(ROOT) not in sys.path:
 
 from scripts.comics.base import ComicResult, sort_key
 from scripts.comics import comics_kingdom, farside, xkcd
-from scripts.games import circle9, latimes, nyt
+from scripts.games import circle9
 from scripts.news import ap, politico
 from scripts.news.base import HttpClient, assign_unique
-from scripts.validate import validate_comics, validate_games, validate_news
+from scripts.validate import validate_comics, validate_news
 
 GENERATED = ROOT / "generated"
 
@@ -149,21 +149,19 @@ async def main() -> None:
 
     games_config = load_yaml("games.yaml")
     async def external_game(source: dict) -> dict:
-        adapter = circle9 if source["provider"] == "circle9" else latimes
-        result = await limited(adapter.collect(source, client))
+        if source["provider"] == "circle9":
+            result = await limited(circle9.collect(source, client))
+        else:
+            result = {**source, "status": "ok"}
         statuses.append({"id": source["id"], "kind": "game", "status": result["status"], "detail": result.get("detail", "")[:240]})
         return result
 
     print("Collecting games…", flush=True)
     external = await asyncio.gather(*(external_game(source) for source in games_config["external"]))
-    wordle, connections, strands = await asyncio.gather(*(limited(nyt.collect(game, day, client)) for game in ("wordle", "connections", "strands")))
-    for game, result in (("wordle", wordle), ("connections", connections), ("strands", strands)):
-        statuses.append({"id": game, "kind": "game", "status": result["status"], "detail": result.get("detail", "")[:240]})
     games_index = {"date": day.isoformat(), "external": [{key: value for key, value in game.items() if key != "detail"} for game in external]}
 
     validate_news(news_data)
     validate_comics(comics_data, staging_root)
-    validate_games(wordle, connections, strands)
     manifest = {
         "build_time": now.isoformat(), "edition_date": day.isoformat(),
         "news": {"success": sum(s["kind"] == "news" and s["status"] == "ok" for s in statuses), "failed": sum(s["kind"] == "news" and s["status"] != "ok" for s in statuses)},
@@ -188,9 +186,6 @@ async def main() -> None:
     write_json(GENERATED / "news.json", news_data)
     write_json(GENERATED / "comics.json", comics_data)
     write_json(GENERATED / "games" / "index.json", games_index)
-    write_json(GENERATED / "games" / "wordle.json", {key: value for key, value in wordle.items() if key != "detail"})
-    write_json(GENERATED / "games" / "connections.json", {key: value for key, value in connections.items() if key != "detail"})
-    write_json(GENERATED / "games" / "strands.json", {key: value for key, value in strands.items() if key != "detail"})
     write_json(GENERATED / "manifest.json", manifest)
     await client.close()
     print(json.dumps({key: manifest[key] for key in ("edition_date", "news", "comics", "games")}, indent=2))

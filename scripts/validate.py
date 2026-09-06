@@ -4,7 +4,6 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from scripts.games.nyt import find_paths
 
 
 def validate_news(data: dict) -> None:
@@ -33,15 +32,3 @@ def validate_comics(data: list[dict], generated: Path) -> None:
         for image in comic["images"]:
             path = generated / image
             assert path.exists() and path.stat().st_size > 4_000
-
-
-def validate_games(wordle: dict, connections: dict, strands: dict) -> None:
-    if wordle["status"] == "ok":
-        assert len(wordle["solution"]) == 5 and wordle["solution"].isalpha()
-    if connections["status"] == "ok":
-        assert len(connections["groups"]) == 4
-        assert len({word for group in connections["groups"] for word in group["members"]}) == 16
-    if strands["status"] == "ok":
-        assert len(strands["grid"]) == 8 and all(len(row) == 6 for row in strands["grid"])
-        for answer in strands["answers"]:
-            assert answer["cells"] in find_paths(strands["grid"], answer["word"])
