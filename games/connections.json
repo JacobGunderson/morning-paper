@@ -1,44 +1,44 @@
 {
-  "date": "2026-09-05",
+  "date": "2026-09-06",
   "groups": [
     {
       "level": 0,
-      "category": "MOVE UNSTEADILY",
+      "category": "UNRESTRICTED PERMISSION",
       "members": [
-        "SWAY",
-        "TODDLE",
-        "TOTTER",
-        "WOBBLE"
+        "BLANK CHECK",
+        "CARTE BLANCHE",
+        "FREE REIN",
+        "FULL AUTHORITY"
       ]
     },
     {
       "level": 1,
-      "category": "BIRD ONOMATOPOEIA",
+      "category": "PLACES TO INSERT SOMETHING INTO ON A COMPUTER",
       "members": [
-        "COO",
-        "GOBBLE",
-        "HONK",
-        "WARBLE"
+        "CARD SLOT",
+        "HEADPHONE JACK",
+        "OPTICAL DRIVE",
+        "USB PORT"
       ]
     },
     {
       "level": 2,
-      "category": "___HEAD",
+      "category": "ABBREVIATIONS FOLLOWED BY REDUNDANT WORD",
       "members": [
-        "BOBBLE",
-        "HAMMER",
-        "JUG",
-        "SLEEPY"
+        "ATM MACHINE",
+        "LCD DISPLAY",
+        "PIN NUMBER",
+        "UPC CODE"
       ]
     },
     {
       "level": 3,
-      "category": "DESSERTS MINUS LAST LETTER",
+      "category": "ENDING WITH WAYS TO CARVE A SURFACE",
       "members": [
-        "COBBLE",
-        "PI",
-        "TAR",
-        "TORT"
+        "COURT SCRIBE",
+        "DIRECTOR'S CUT",
+        "PIZZA SLICE",
+        "SAT SCORE"
       ]
     }
   ],

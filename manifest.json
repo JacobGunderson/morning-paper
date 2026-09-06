@@ -1,17 +1,17 @@
 {
-  "build_time": "2026-09-05T18:05:28.343904-06:00",
-  "edition_date": "2026-09-05",
+  "build_time": "2026-09-06T10:08:45.144907-06:00",
+  "edition_date": "2026-09-06",
   "news": {
     "success": 26,
     "failed": 0
   },
   "comics": {
-    "success": 37,
-    "failed": 13
+    "success": 40,
+    "failed": 10
   },
   "games": {
     "success": 8,
-    "failed": 0
+    "failed": 2
   },
   "source_statuses": [
     {
@@ -27,10 +27,10 @@
       "count": 23
     },
     {
-      "id": "ap_latin_america",
+      "id": "ap_middle_east",
       "kind": "news",
       "status": "ok",
-      "count": 30
+      "count": 23
     },
     {
       "id": "ap_russia_ukraine",
@@ -39,10 +39,10 @@
       "count": 30
     },
     {
-      "id": "ap_middle_east",
+      "id": "ap_latin_america",
       "kind": "news",
       "status": "ok",
-      "count": 23
+      "count": 30
     },
     {
       "id": "ap_africa",
@@ -57,22 +57,16 @@
       "count": 21
     },
     {
-      "id": "ap_us",
-      "kind": "news",
-      "status": "ok",
-      "count": 21
-    },
-    {
       "id": "ap_immigration",
       "kind": "news",
       "status": "ok",
       "count": 26
     },
     {
-      "id": "ap_weather",
+      "id": "ap_us",
       "kind": "news",
       "status": "ok",
-      "count": 26
+      "count": 22
     },
     {
       "id": "ap_education",
@@ -81,10 +75,22 @@
       "count": 29
     },
     {
+      "id": "ap_weather",
+      "kind": "news",
+      "status": "ok",
+      "count": 26
+    },
+    {
       "id": "ap_transportation",
       "kind": "news",
       "status": "ok",
       "count": 30
+    },
+    {
+      "id": "politico_canada",
+      "kind": "news",
+      "status": "ok",
+      "count": 6
     },
     {
       "id": "politico_security",
@@ -99,16 +105,16 @@
       "count": 30
     },
     {
-      "id": "politico_elections",
+      "id": "politico_energy",
       "kind": "news",
       "status": "ok",
       "count": 30
     },
     {
-      "id": "politico_canada",
+      "id": "politico_elections",
       "kind": "news",
       "status": "ok",
-      "count": 6
+      "count": 30
     },
     {
       "id": "politico_legal",
@@ -123,7 +129,7 @@
       "count": 30
     },
     {
-      "id": "politico_energy",
+      "id": "politico_tech",
       "kind": "news",
       "status": "ok",
       "count": 30
@@ -135,19 +141,19 @@
       "count": 30
     },
     {
-      "id": "politico_tech",
+      "id": "ap_technology",
       "kind": "news",
       "status": "ok",
-      "count": 30
+      "count": 29
     },
     {
-      "id": "ap_archaeology",
+      "id": "ap_space",
       "kind": "news",
       "status": "ok",
       "count": 26
     },
     {
-      "id": "ap_space",
+      "id": "ap_archaeology",
       "kind": "news",
       "status": "ok",
       "count": 26
@@ -159,256 +165,16 @@
       "count": 5
     },
     {
-      "id": "ap_technology",
-      "kind": "news",
-      "status": "ok",
-      "count": 29
-    },
-    {
       "id": "ap_climate",
       "kind": "news",
       "status": "ok",
       "count": 30
     },
     {
-      "id": "gocomics_9_chickweed_lane",
+      "id": "far_side",
       "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_andycapp",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_annie",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_theargylesweater",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_barneyandclyde",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_basicinstructions",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_berger_and_wyse",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_berkeley_mews",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_bignate",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_bob_the_angry_flower",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_boondocks",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_brewsterrockit",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_calvinandhobbes",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_cornered",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_crabgrass",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_culdesac",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_eek",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_fminus",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_foxtrot",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_foxtrotclassics",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_grand_avenue",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_inkpen",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_life_on_earth",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_lio",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_lockhorns",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_looks_good_on_paper",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_nancy",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_nancy_classics",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_nonsequitur",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_offthemark",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_peanuts_begins",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_redmeat",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_ripleysbelieveitornot",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_saturday_morning_breakfast_cereal",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_speedbump",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_thatababy",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_tomthedancingbug",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_wizardofid",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_wizard_of_id_classics",
-      "kind": "comic",
-      "status": "mock",
-      "detail": "Saved GoComics page"
-    },
-    {
-      "id": "gocomics_zen_pencils",
-      "kind": "comic",
-      "status": "unavailable",
-      "detail": "Saved GoComics page"
+      "status": "ok",
+      "detail": ""
     },
     {
       "id": "xkcd",
@@ -419,17 +185,23 @@
     {
       "id": "beware_toddler",
       "kind": "comic",
-      "status": "stale",
-      "detail": ""
-    },
-    {
-      "id": "bizarro",
-      "kind": "comic",
       "status": "ok",
       "detail": ""
     },
     {
       "id": "edison_lee",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "dustin",
+      "kind": "comic",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "rhymes_orange",
       "kind": "comic",
       "status": "ok",
       "detail": ""
@@ -447,7 +219,7 @@
       "detail": ""
     },
     {
-      "id": "dustin",
+      "id": "bizarro",
       "kind": "comic",
       "status": "ok",
       "detail": ""
@@ -455,35 +227,23 @@
     {
       "id": "goomer",
       "kind": "comic",
-      "status": "stale",
-      "detail": ""
-    },
-    {
-      "id": "rhymes_orange",
-      "kind": "comic",
       "status": "ok",
       "detail": ""
     },
     {
-      "id": "far_side",
-      "kind": "comic",
-      "status": "error",
-      "detail": "request failed after 3 attempts: https://www.thefarside.com/: Client error '403 Forbidden' for url 'https://www.thefarside.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
-    },
-    {
-      "id": "daily_mini_crossword",
+      "id": "lat_crossword",
       "kind": "game",
       "status": "ok",
       "detail": ""
     },
     {
-      "id": "daily_crossword",
+      "id": "lat_mini",
       "kind": "game",
       "status": "ok",
       "detail": ""
     },
     {
-      "id": "blueberry_trio",
+      "id": "twinominoes",
       "kind": "game",
       "status": "ok",
       "detail": ""
@@ -495,7 +255,7 @@
       "detail": ""
     },
     {
-      "id": "twinominoes",
+      "id": "blueberry_trio",
       "kind": "game",
       "status": "ok",
       "detail": ""
@@ -517,6 +277,258 @@
       "kind": "game",
       "status": "ok",
       "detail": ""
+    },
+    {
+      "id": "crossword",
+      "kind": "game",
+      "status": "unavailable",
+      "detail": "request failed after 3 attempts: https://www.nytimes.com/svc/crosswords/v6/puzzle/2026-09-06.json: Client error '404 Not Found' for url 'https://www.nytimes.com/svc/crosswords/v6/puzzle/2026-09-06.json'\nFor more information check: https://d"
+    },
+    {
+      "id": "mini_crossword",
+      "kind": "game",
+      "status": "unavailable",
+      "detail": "Payload did not contain a playable crossword grid and clue list"
+    },
+    {
+      "id": "gocomics_wizard_of_id_classics",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_offthemark",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_looks_good_on_paper",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_lockhorns",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_lio",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_inkpen",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_grand_avenue",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_fminus",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_crabgrass",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_boondocks",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_barneyandclyde",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_life_on_earth",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_peanuts_begins",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_culdesac",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_theargylesweater",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_andycapp",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_annie",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_brewsterrockit",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_cornered",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_speedbump",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_wizardofid",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_nonsequitur",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_bignate",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_thatababy",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_eek",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_ripleysbelieveitornot",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_9_chickweed_lane",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_foxtrot",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_calvinandhobbes",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_nancy",
+      "kind": "comic",
+      "status": "mock",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_zen_pencils",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_redmeat",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_tomthedancingbug",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_saturday_morning_breakfast_cereal",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_berkeley_mews",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_berger_and_wyse",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_bob_the_angry_flower",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_foxtrotclassics",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_basicinstructions",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
+    },
+    {
+      "id": "gocomics_nancy_classics",
+      "kind": "comic",
+      "status": "unavailable",
+      "detail": "Saved GoComics page"
     }
   ]
 }
