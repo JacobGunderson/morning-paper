@@ -93,7 +93,7 @@ For a custom domain, add it in **Settings → Pages → Custom domain** and foll
 - The three local NYT-style games use official daily data when its date-addressable endpoint is reachable. Answers are present in static JSON by design, but never revealed in normal play except Wordle after six misses.
 - Browser progress is deliberately limited to the selected game. There is no login, analytics, advertising, or cross-device synchronization.
 - Third-party publishers can change markup, endpoints, framing policy, or automated-access policy at any time. The corresponding adapter then records a failure and the public edition retains an original-source link.
-- The L.A. Times recently serves a first-party game experience on its page. The resolver still looks for an isolated PuzzleMe/Amuse Labs iframe and will use a link fallback when none is publicly exposed or embeddable.
+- The L.A. Times game server allows frames only on its own related domains. The site resolves its current official Amuse Labs player each day and opens it directly in a new tab rather than presenting a blocked embedded frame.
 - Circle9 URLs do not need the example `v=414` query parameter; configuration uses their stable paths.
 
 ## Repository map

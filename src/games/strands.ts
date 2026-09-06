@@ -12,7 +12,8 @@ export function createStrands(data: StrandsData | null): HTMLElement {
   }
   const gridData = data.grid;
   const answers = data.answers;
-  const found = new Set<string>(); let active: Array<[number, number]> = []; let pointerId: number | null = null; let hintProgress = 0;
+  const found = new Set<string>(); const hinted = new Set<string>(); let active: Array<[number, number]> = [];
+  let pointerId: number | null = null; let pointerStart: [number, number] | null = null; let dragging = false; let suppressClick = false;
   const earned = { value: 0 };
   const theme = document.createElement('p'); theme.className = 'strands-theme'; theme.innerHTML = `TODAY'S THEME<br><strong>${data.theme}</strong>`;
   const board = document.createElement('div'); board.className = 'strands-board'; board.style.setProperty('--rows', String(gridData.length));
@@ -27,7 +28,11 @@ export function createStrands(data: StrandsData | null): HTMLElement {
   const wordView = document.createElement('p'); wordView.className = 'strand-word'; wordView.setAttribute('role', 'status');
   const message = document.createElement('p'); message.className = 'game-message';
   const progress = document.createElement('p'); progress.className = 'strands-progress';
+  const hintStatus = document.createElement('p'); hintStatus.className = 'strands-hint-status';
   const hint = button('HINT', 'outline-button'); hint.disabled = true;
+  const check = button('CHECK WORD', 'solid-button');
+  const clear = button('CLEAR', 'outline-button');
+  const controls = document.createElement('div'); controls.className = 'game-controls strands-controls'; controls.append(check, clear, hint);
 
   const refreshLines = () => {
     svg.replaceChildren();
@@ -41,8 +46,10 @@ export function createStrands(data: StrandsData | null): HTMLElement {
     cells.forEach(cell => { cell.classList.remove('selected', 'found', 'spangram', 'hinted'); });
     answers.filter(answer => found.has(answer.word)).forEach(answer => answer.cells.forEach(position => cells.get(cellKey(position))?.classList.add(answer.spangram ? 'spangram' : 'found')));
     active.forEach(position => cells.get(cellKey(position))?.classList.add('selected'));
+    hinted.forEach(key => cells.get(key)?.classList.add('hinted'));
     wordView.textContent = traceWord(gridData, active);
     progress.textContent = `${found.size} OF ${answers.length} THEME WORDS FOUND`;
+    hintStatus.textContent = hint.disabled ? `HINTS: ${earned.value} OF 3 NON-THEME WORDS` : 'HINT READY';
   };
   const coordinateFromEvent = (event: PointerEvent): [number, number] | null => {
     const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLButtonElement>('.strand-cell');
@@ -60,30 +67,62 @@ export function createStrands(data: StrandsData | null): HTMLElement {
     if (!previous || adjacent(previous, coordinate)) { extendOne(coordinate); return; }
     cellsBetween(previous, coordinate).forEach(extendOne);
   };
-  board.onpointerdown = event => {
-    const coordinate = coordinateFromEvent(event); if (!coordinate) return;
-    event.preventDefault(); pointerId = event.pointerId; board.setPointerCapture(pointerId); active = []; extend(coordinate);
-  };
-  board.onpointermove = event => { if (pointerId !== event.pointerId) return; event.preventDefault(); const coordinate = coordinateFromEvent(event); if (coordinate) extend(coordinate); };
-  const finish = (event: PointerEvent) => {
-    if (pointerId !== event.pointerId) return;
+  const submit = () => {
     const word = traceWord(gridData, active).toUpperCase(); const answer = answers.find(candidate => candidate.word.toUpperCase() === word);
     if (answer && !found.has(answer.word)) {
       found.add(answer.word); message.textContent = answer.spangram ? 'SPANGRAM!' : 'THEME WORD';
       if (found.size === answers.length) message.textContent = 'PUZZLE COMPLETE';
+    } else if (answer) {
+      message.textContent = 'ALREADY FOUND';
     } else if (word.length >= 4 && (data.valid_words ?? []).includes(word)) {
       earned.value += 1; message.textContent = 'NON-THEME WORD';
       if (earned.value >= 3) hint.disabled = false;
-    } else if (word.length >= 4) message.textContent = 'NOT IN WORD LIST';
-    active = []; pointerId = null; refreshLines();
+    } else if (word.length >= 4) {
+      message.textContent = 'NOT IN WORD LIST';
+    } else if (word) {
+      message.textContent = 'SELECT AT LEAST 4 LETTERS';
+    }
+    active = []; refreshLines();
   };
-  board.onpointerup = finish; board.onpointercancel = event => { active = []; pointerId = null; refreshLines(); event.preventDefault(); };
+  const selectByClick = (coordinate: [number, number]) => {
+    if (!active.length) { active = [coordinate]; message.textContent = 'SELECT CONNECTING LETTERS, THEN CHECK WORD'; refreshLines(); return; }
+    const before = active.length; extend(coordinate);
+    if (active.length === before && cellKey(active.at(-1)!) !== cellKey(coordinate)) message.textContent = 'NEXT LETTER MUST TOUCH THE SELECTION';
+    const word = traceWord(gridData, active).toUpperCase();
+    if (answers.some(answer => !found.has(answer.word) && answer.word.toUpperCase() === word)) submit();
+  };
+  board.onpointerdown = event => {
+    const coordinate = coordinateFromEvent(event); if (!coordinate) return;
+    pointerId = event.pointerId; pointerStart = coordinate; dragging = false;
+  };
+  board.onpointermove = event => {
+    if (pointerId !== event.pointerId || !pointerStart) return;
+    const coordinate = coordinateFromEvent(event); if (!coordinate) return;
+    if (!dragging && cellKey(coordinate) !== cellKey(pointerStart)) { dragging = true; active = [pointerStart]; board.setPointerCapture(event.pointerId); }
+    if (dragging) { event.preventDefault(); extend(coordinate); }
+  };
+  const finish = (event: PointerEvent) => {
+    if (pointerId !== event.pointerId) return;
+    if (dragging) { suppressClick = true; submit(); }
+    pointerId = null; pointerStart = null; dragging = false;
+  };
+  board.onpointerup = finish; board.onpointercancel = event => { pointerId = null; pointerStart = null; dragging = false; event.preventDefault(); };
+  board.onclick = event => {
+    const target = (event.target as Element).closest<HTMLButtonElement>('.strand-cell'); if (!target || !board.contains(target)) return;
+    if (suppressClick) { suppressClick = false; return; }
+    selectByClick([Number(target.dataset.row), Number(target.dataset.column)]);
+  };
+  check.onclick = submit;
+  clear.onclick = () => { active = []; message.textContent = ''; refreshLines(); };
   hint.onclick = () => {
     const target = answers.find(answer => !found.has(answer.word)); if (!target) return;
-    const cell = target.cells[hintProgress % target.cells.length]; cells.get(cellKey(cell))?.classList.add('hinted'); hintProgress += 1;
+    const cell = target.cells.find(position => !hinted.has(cellKey(position)));
+    if (!cell) { message.textContent = 'THIS WORD IS ALREADY FULLY HINTED'; return; }
+    hinted.add(cellKey(cell));
     earned.value = 0; hint.disabled = true; message.textContent = 'A THEME-WORD LETTER IS HIGHLIGHTED';
+    refreshLines();
   };
-  root.append(theme, board, wordView, progress, message, hint); refreshLines();
+  root.append(theme, board, wordView, progress, hintStatus, message, controls); refreshLines();
   root.insertAdjacentHTML('beforeend', `<a class="source-link" href="${data.source_url}" target="_blank" rel="noopener noreferrer">OFFICIAL NYT VERSION ↗</a>`);
   return root;
 }

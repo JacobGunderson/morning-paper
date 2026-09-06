@@ -10,6 +10,8 @@ from scripts.news.base import HttpClient
 
 def resolve_embed(html: str, page_url: str) -> str | None:
     soup = BeautifulSoup(html, "lxml")
+    for game in soup.select("ps-amuse-labs[data-frame-source]"):
+        return urljoin(page_url, game["data-frame-source"])
     for iframe in soup.select("iframe[src]"):
         src = urljoin(page_url, iframe["src"])
         if any(marker in src.lower() for marker in ("amuselabs", "puzzleme", "crossword")):

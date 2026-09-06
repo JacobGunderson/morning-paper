@@ -98,6 +98,8 @@ main { min-height: 62vh; }
 .strand-cell.selected { background: #d8d8d8; } .strand-cell.found { background: var(--blue); } .strand-cell.spangram { background: var(--spangram); } .strand-cell.hinted { box-shadow: inset 0 0 0 4px #111; }
 .strand-word { min-height: 1.5rem; margin: 12px 0 0; font-weight: 600; letter-spacing: .1em; }
 .strands-progress { color: var(--muted); font-size: .75rem; }
+.strands-hint-status { min-height: 1.2rem; margin: 4px 0 0; color: var(--muted); font-size: .72rem; font-weight: 600; }
+.strands-controls { margin-top: 14px; }
 
 @media (max-width: 700px) {
   #app { width: min(100% - 24px, 1360px); }
