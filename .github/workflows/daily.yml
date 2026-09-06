@@ -1,0 +1,57 @@
+name: Build morning edition
+
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub cron is UTC. One trigger is 04:35 MDT and the other 04:35 MST;
+    # the gate below lets only the one that is 4 AM in America/Denver build.
+    - cron: "35 10,11 * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  scheduled-time:
+    runs-on: ubuntu-latest
+    outputs:
+      should_build: ${{ steps.gate.outputs.should_build }}
+    steps:
+      - id: gate
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(TZ=America/Denver date +%H)" = "04" ]; then
+            echo "should_build=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_build=false" >> "$GITHUB_OUTPUT"
+          fi
+  build:
+    needs: scheduled-time
+    if: needs.scheduled-time.outputs.should_build == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm }
+      - run: pip install -r requirements.txt
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: python scripts/refresh.py
+      - run: npm test
+      - run: npm run test:e2e
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: dist }
+      - name: Deploy only after collection, validation, tests, and build succeed
+        id: deployment
+        uses: actions/deploy-pages@v4
