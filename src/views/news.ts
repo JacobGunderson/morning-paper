@@ -13,12 +13,19 @@ export function renderNews(data: NewsData | null): HTMLElement {
     view.innerHTML = '<h1 id="news-title" class="view-title">News</h1><p class="notice">TODAY\'S NEWS DATA IS UNAVAILABLE.</p>';
     return view;
   }
-  view.innerHTML = data.sections.map((section, sectionIndex) => `
+  const contents = data.sections.map(section => `
+    <div class="news-toc-row">
+      <button class="news-toc-major" type="button" data-news-target="section-${escapeHtml(section.id)}">${escapeHtml(section.title)}</button>
+      <div class="news-toc-topics" aria-label="${escapeHtml(section.title)} topics">
+        ${section.subsections.map(subsection => `<button type="button" data-news-target="topic-${escapeHtml(section.id)}-${escapeHtml(subsection.id)}">${escapeHtml(subsection.title)}</button>`).join('')}
+      </div>
+    </div>`).join('');
+  view.innerHTML = `<header class="section-header"><span>01</span><h1 id="news-title">News</h1></header><nav class="news-toc" aria-label="News contents">${contents}</nav>` + data.sections.map((section, sectionIndex) => `
     <section class="news-section" aria-labelledby="section-${escapeHtml(section.id)}">
       <header class="section-header"><span>${String(sectionIndex + 1).padStart(2, '0')}</span><h1 id="section-${escapeHtml(section.id)}">${escapeHtml(section.title)}</h1></header>
       <div class="news-grid">
         ${section.subsections.map(subsection => `
-          <article class="news-column">
+          <article class="news-column" id="topic-${escapeHtml(section.id)}-${escapeHtml(subsection.id)}">
             <h2>${escapeHtml(subsection.title)}</h2>
             ${subsection.status === 'fallback' && subsection.source && subsection.active_source ? `
               <p class="source-note">${escapeHtml(subsection.source.publisher)} is unavailable. Showing ${escapeHtml(subsection.active_source.publisher)}.</p>
@@ -30,5 +37,10 @@ export function renderNews(data: NewsData | null): HTMLElement {
           </article>`).join('')}
       </div>
     </section>`).join('');
+  view.querySelectorAll<HTMLButtonElement>('[data-news-target]').forEach(button => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.newsTarget ?? '')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
   return view;
 }

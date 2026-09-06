@@ -1,40 +1,11 @@
 comics:
-  - { id: andy_capp, title: Andy Capp, provider: gocomics, slug: andycapp, base_url: "https://www.gocomics.com/andycapp" }
-  - { id: barney_clyde, title: "Barney & Clyde", provider: gocomics, slug: barneyandclyde, base_url: "https://www.gocomics.com/barneyandclyde" }
-  - { id: basic_instructions, title: Basic Instructions, provider: gocomics, slug: basicinstructions, base_url: "https://www.gocomics.com/basicinstructions" }
-  - { id: beware_toddler, title: Beware of Toddler, provider: comics_kingdom, slug: beware-of-toddler, base_url: "https://comicskingdom.com/beware-of-toddler" }
-  - { id: big_nate, title: Big Nate, provider: gocomics, slug: bignate, base_url: "https://www.gocomics.com/bignate" }
-  - { id: bizarro, title: Bizarro, provider: comics_kingdom, slug: bizarro, base_url: "https://comicskingdom.com/bizarro" }
-  - { id: boondocks, title: Boondocks, provider: gocomics, slug: boondocks, base_url: "https://www.gocomics.com/boondocks" }
-  - { id: brewster_rockit, title: Brewster Rockit, provider: gocomics, slug: brewsterrockit, base_url: "https://www.gocomics.com/brewsterrockit" }
-  - { id: edison_lee, title: The Brilliant Mind of Edison Lee, provider: comics_kingdom, slug: brilliant-mind-of-edison-lee, base_url: "https://comicskingdom.com/brilliant-mind-of-edison-lee" }
-  - { id: broom_hilda, title: Broom-Hilda, provider: comics_kingdom, slug: broomhilda, base_url: "https://comicskingdom.com/broomhilda" }
-  - { id: calvin_hobbes, title: Calvin and Hobbes, provider: gocomics, slug: calvinandhobbes, base_url: "https://www.gocomics.com/calvinandhobbes" }
-  - { id: cornered, title: Cornered, provider: gocomics, slug: cornered, base_url: "https://www.gocomics.com/cornered" }
-  - { id: cul_de_sac, title: Cul de Sac, provider: gocomics, slug: culdesac, base_url: "https://www.gocomics.com/culdesac" }
-  - { id: dustin, title: Dustin, provider: comics_kingdom, slug: dustin, base_url: "https://comicskingdom.com/dustin" }
-  - { id: eek, title: Eek!, provider: gocomics, slug: eek, base_url: "https://www.gocomics.com/eek" }
-  - { id: f_minus, title: F Minus, provider: gocomics, slug: fminus, base_url: "https://www.gocomics.com/fminus" }
-  - { id: far_side, title: The Far Side, provider: farside, slug: the-far-side, base_url: "https://www.thefarside.com/" }
-  - { id: foxtrot, title: FoxTrot, provider: gocomics, slug: foxtrot, base_url: "https://www.gocomics.com/foxtrot" }
-  - { id: foxtrot_classics, title: FoxTrot Classics, provider: gocomics, slug: foxtrotclassics, base_url: "https://www.gocomics.com/foxtrotclassics" }
-  - { id: goomer, title: Goomer, provider: comics_kingdom, slug: goomer, base_url: "https://comicskingdom.com/goomer" }
-  - { id: grand_avenue, title: Grand Avenue, provider: gocomics, slug: grand-avenue, base_url: "https://www.gocomics.com/grand-avenue" }
-  - { id: ink_pen, title: Ink Pen, provider: gocomics, slug: inkpen, base_url: "https://www.gocomics.com/inkpen" }
-  - { id: lio, title: Liō, provider: gocomics, slug: lio, base_url: "https://www.gocomics.com/lio" }
-  - { id: lockhorns, title: The Lockhorns, provider: gocomics, slug: lockhorns, base_url: "https://www.gocomics.com/lockhorns" }
-  - { id: looks_good, title: Looks Good on Paper, provider: gocomics, slug: looks-good-on-paper, base_url: "https://www.gocomics.com/looks-good-on-paper" }
-  - { id: nancy, title: Nancy, provider: gocomics, slug: nancy, base_url: "https://www.gocomics.com/nancy" }
-  - { id: nancy_classics, title: Nancy Classics, provider: gocomics, slug: nancy-classics, base_url: "https://www.gocomics.com/nancy-classics" }
-  - { id: never_deader, title: Never Been Deader, provider: comics_kingdom, slug: never-been-deader, base_url: "https://comicskingdom.com/never-been-deader" }
-  - { id: non_sequitur, title: Non Sequitur, provider: gocomics, slug: nonsequitur, base_url: "https://www.gocomics.com/nonsequitur" }
-  - { id: origins, title: Origins of the Sunday Comics, provider: gocomics, slug: origins-of-the-sunday-comics, base_url: "https://www.gocomics.com/origins-of-the-sunday-comics" }
-  - { id: rhymes_orange, title: Rhymes with Orange, provider: comics_kingdom, slug: rhymes-with-orange, base_url: "https://comicskingdom.com/rhymes-with-orange" }
-  - { id: ripleys, title: "Ripley's Believe It or Not!", provider: gocomics, slug: ripleysbelieveitornot, base_url: "https://www.gocomics.com/ripleysbelieveitornot" }
-  - { id: smbc, title: Saturday Morning Breakfast Cereal, provider: gocomics, slug: saturday-morning-breakfast-cereal, base_url: "https://www.gocomics.com/saturday-morning-breakfast-cereal" }
-  - { id: speed_bump, title: Speed Bump, provider: gocomics, slug: speedbump, base_url: "https://www.gocomics.com/speedbump" }
-  - { id: thatababy, title: Thatababy, provider: gocomics, slug: thatababy, base_url: "https://www.gocomics.com/thatababy" }
-  - { id: tom_dancing_bug, title: Tom the Dancing Bug, provider: gocomics, slug: tomthedancingbug, base_url: "https://www.gocomics.com/tomthedancingbug" }
-  - { id: wizard_id, title: Wizard of Id, provider: gocomics, slug: wizardofid, base_url: "https://www.gocomics.com/wizardofid" }
-  - { id: wizard_id_classics, title: Wizard of Id Classics, provider: gocomics, slug: wizard-of-id-classics, base_url: "https://www.gocomics.com/wizard-of-id-classics" }
-  - { id: xkcd, title: xkcd, provider: xkcd, slug: xkcd, base_url: "https://xkcd.com/" }
+  - { id: beware_toddler, title: Beware of Toddler, author: George Gant, provider: comics_kingdom, slug: beware-of-toddler, base_url: "https://comicskingdom.com/beware-of-toddler" }
+  - { id: bizarro, title: Bizarro, author: Wayno & Piraro, provider: comics_kingdom, slug: bizarro, base_url: "https://comicskingdom.com/bizarro" }
+  - { id: edison_lee, title: The Brilliant Mind of Edison Lee, author: John Hambrock, provider: comics_kingdom, slug: brilliant-mind-of-edison-lee, base_url: "https://comicskingdom.com/brilliant-mind-of-edison-lee" }
+  - { id: broom_hilda, title: Broom-Hilda, author: Russell Myers, provider: comics_kingdom, slug: broomhilda, base_url: "https://comicskingdom.com/broomhilda" }
+  - { id: dustin, title: Dustin, author: Steve Kelley & Jeff Parker, provider: comics_kingdom, slug: dustin, base_url: "https://comicskingdom.com/dustin" }
+  - { id: goomer, title: Goomer, author: Ricardo Martinez & Ignacio "Nacho" Moreno, provider: comics_kingdom, slug: goomer, base_url: "https://comicskingdom.com/goomer" }
+  - { id: never_deader, title: Never Been Deader, author: Tommy Devoid, provider: comics_kingdom, slug: never-been-deader, base_url: "https://comicskingdom.com/never-been-deader" }
+  - { id: rhymes_orange, title: Rhymes with Orange, author: Hilary Price & Rina Piccolo, provider: comics_kingdom, slug: rhymes-with-orange, base_url: "https://comicskingdom.com/rhymes-with-orange" }
+  - { id: far_side, title: The Far Side, author: Gary Larson, provider: farside, slug: the-far-side, base_url: "https://www.thefarside.com/" }
+  - { id: xkcd, title: xkcd, author: Randall Munroe, provider: xkcd, slug: xkcd, base_url: "https://xkcd.com/" }

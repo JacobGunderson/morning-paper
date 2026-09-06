@@ -70,8 +70,8 @@ async def main() -> None:
     by_id.update({result.id: result.public() for result in results})
     comics = sorted(by_id.values(), key=lambda comic: sort_key(comic["name"]))
 
-    # Replace only files produced by the providers being refreshed. Browser-sourced
-    # GoComics strips remain untouched until their signed-in refresh runs.
+    # Replace only files produced by the providers being refreshed. The saved-page
+    # GoComics mock stays intact until a future email importer replaces it.
     target_ids = {result.id for result in results}
     live_images = GENERATED / "comics"
     live_images.mkdir(parents=True, exist_ok=True)
@@ -89,11 +89,10 @@ async def main() -> None:
     existing_statuses = [status for status in manifest.get("source_statuses", []) if status.get("id") not in target_ids]
     existing_statuses.extend({"id": result.id, "kind": "comic", "status": result.status, "detail": result.detail[:240]} for result in results)
     manifest.update({
-        "build_time": now.isoformat(),
-        "edition_date": day.isoformat(),
+        "comics_updated_at": now.isoformat(),
         "comics": {
-            "success": sum(comic["status"] in {"ok", "stale"} for comic in comics),
-            "failed": sum(comic["status"] not in {"ok", "stale"} for comic in comics),
+            "success": sum(comic["status"] in {"ok", "stale", "mock"} for comic in comics),
+            "failed": sum(comic["status"] not in {"ok", "stale", "mock"} for comic in comics),
         },
         "source_statuses": existing_statuses,
     })

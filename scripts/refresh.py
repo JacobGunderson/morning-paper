@@ -18,7 +18,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.comics.base import ComicResult, sort_key
-from scripts.comics import comics_kingdom, farside, gocomics, xkcd
+from scripts.comics import comics_kingdom, farside, xkcd
 from scripts.games import circle9, latimes, nyt
 from scripts.news import ap, politico
 from scripts.news.base import HttpClient, assign_unique
@@ -109,13 +109,22 @@ async def main() -> None:
     comics_dir.mkdir(parents=True, exist_ok=True)
     (comics_dir / ".gitkeep").touch()
     atexit.register(shutil.rmtree, staging_root, ignore_errors=True)
+    previous_comics = json.loads((GENERATED / "comics.json").read_text(encoding="utf-8")) if (GENERATED / "comics.json").exists() else []
+    saved_gocomics = [comic for comic in previous_comics if comic["provider"] == "gocomics_snapshot"]
+    for comic in saved_gocomics:
+        for image in comic["images"]:
+            source = GENERATED / image
+            destination = staging_root / image
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, destination)
+        statuses.append({"id": comic["id"], "kind": "comic", "status": comic["status"], "detail": "Saved GoComics page"})
     comic_sources = load_yaml("comics.yaml")["comics"]
     if len({source["id"] for source in comic_sources}) != len(comic_sources):
         raise ValueError("Duplicate comic ids in config/comics.yaml")
 
     async def comic_source(source: dict) -> ComicResult:
         try:
-            adapter = {"gocomics": gocomics, "comics_kingdom": comics_kingdom, "farside": farside, "xkcd": xkcd}[source["provider"]]
+            adapter = {"comics_kingdom": comics_kingdom, "farside": farside, "xkcd": xkcd}[source["provider"]]
             result = await limited(adapter.collect(source, day, client, comics_dir))
         except Exception as exc:
             result = ComicResult(source["id"], source["title"], source["provider"], None, source["base_url"], [], "error", str(exc))
@@ -124,12 +133,6 @@ async def main() -> None:
 
     async def comic_provider(provider: str) -> list[ComicResult]:
         provider_sources = [source for source in comic_sources if source["provider"] == provider]
-        if provider == "gocomics":
-            print(f"Rendering {len(provider_sources)} GoComics strips in Chrome…", flush=True)
-            results = await gocomics.collect_all(provider_sources, day, comics_dir)
-            print(f"GoComics complete: {sum(result.status in {'ok', 'stale'} for result in results)} collected.", flush=True)
-            statuses.extend({"id": result.id, "kind": "comic", "status": result.status, "detail": result.detail[:240]} for result in results)
-            return results
         first = await comic_source(provider_sources[0])
         if first.status == "error" and len(provider_sources) > 1:
             # A transport-level failure on the representative page indicates a provider outage/block.
@@ -140,9 +143,9 @@ async def main() -> None:
         return [first, *await asyncio.gather(*(comic_source(source) for source in provider_sources[1:]))]
 
     print(f"Collecting {len(comic_sources)} comics…", flush=True)
-    provider_results = await asyncio.gather(*(comic_provider(provider) for provider in ("gocomics", "comics_kingdom", "farside", "xkcd")))
-    comics = sorted([comic for group in provider_results for comic in group], key=lambda comic: sort_key(comic.name))
-    comics_data = [comic.public() for comic in comics]
+    providers = tuple(dict.fromkeys(source["provider"] for source in comic_sources))
+    provider_results = await asyncio.gather(*(comic_provider(provider) for provider in providers))
+    comics_data = sorted([*saved_gocomics, *(comic.public() for group in provider_results for comic in group)], key=lambda comic: sort_key(comic["name"]))
 
     games_config = load_yaml("games.yaml")
     async def external_game(source: dict) -> dict:
@@ -164,7 +167,7 @@ async def main() -> None:
     manifest = {
         "build_time": now.isoformat(), "edition_date": day.isoformat(),
         "news": {"success": sum(s["kind"] == "news" and s["status"] == "ok" for s in statuses), "failed": sum(s["kind"] == "news" and s["status"] != "ok" for s in statuses)},
-        "comics": {"success": sum(s["kind"] == "comic" and s["status"] in {"ok", "stale"} for s in statuses), "failed": sum(s["kind"] == "comic" and s["status"] not in {"ok", "stale"} for s in statuses)},
+        "comics": {"success": sum(s["kind"] == "comic" and s["status"] in {"ok", "stale", "mock"} for s in statuses), "failed": sum(s["kind"] == "comic" and s["status"] not in {"ok", "stale", "mock"} for s in statuses)},
         "games": {"success": sum(s["kind"] == "game" and s["status"] == "ok" for s in statuses), "failed": sum(s["kind"] == "game" and s["status"] != "ok" for s in statuses)},
         "source_statuses": statuses,
     }

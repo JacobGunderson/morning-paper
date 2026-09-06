@@ -11,14 +11,13 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 npm install
-npm run comics:browser
 npm run refresh:local
 npm run preview
 ```
 
 Open the URL Vite prints (normally `http://127.0.0.1:4173`). Hash routes are `#news`, `#commentary`, `#funnies`, and `#games`. Use `npm run dev` instead of `npm run preview` when actively editing frontend code.
 
-`npm run comics:browser` opens a separate Chrome profile stored in `work/gocomics-chrome`. Keep that window open while refreshing. If GoComics asks for a sign-in, sign in once in that dedicated window; do not use the profile for unrelated browsing. `npm run refresh:local` attaches to that ordinary browser session, visits the configured dated pages in two working tabs, caches the displayed strips into `generated/comics/`, and creates a fresh production build. Chrome's debugging connection is local to this machine. When the command finishes and Vite reports `built in`, reload the preview page. If the preview server is already running, do not start a second copy.
+`npm run refresh:local` refreshes the sources that can be collected without a browser login, then creates a fresh production build. A saved GoComics follows page can be imported for a one-time mock edition with `python scripts/import_gocomics_snapshot.py /path/to/page.html`. Future GoComics editions will be supplied from the subscribed email rather than scraped from the website.
 
 Run the full unit suite and make a production build with:
 
@@ -38,12 +37,12 @@ npm run test:e2e
 
 `scripts/refresh.py` is the orchestration entry point. It independently collects every configured source, records source status, validates the normalized data, and writes the static inputs in `generated/`. A failure from one publisher becomes an `unavailable` or `error` entry and does not stop unrelated sources. Validation runs before any Pages artifact is uploaded, so a bad new edition cannot replace the previous successful deployment.
 
-The collectors use simple HTTP first, JSON-LD and semantic markup before fallback selectors, 20-second timeouts, three attempts, and exponential backoff. GoComics is the exception: its local collector attaches to a dedicated ordinary Chrome session, then caches the strip displayed on each dated page. A fresh Playwright browser remains the unattended-build fallback, but a publisher can decline that automated session. The collectors do not fetch article bodies or make readers' browsers contact news/comic publishers. The current comic build begins with an empty comic output directory, so it does not become a permanent archive.
+The collectors use simple HTTP first, JSON-LD and semantic markup before fallback selectors, 20-second timeouts, three attempts, and exponential backoff. GoComics is not scraped; until its subscribed email is connected, the current saved-page mock is preserved across refreshes. The collectors do not fetch article bodies or make readers' browsers contact news/comic publishers.
 
 Adapters are isolated by provider:
 
 - `scripts/news/ap.py` and `scripts/news/politico.py`
-- `scripts/comics/gocomics.py`, `comics_kingdom.py`, `farside.py`, and `xkcd.py`
+- `scripts/comics/comics_kingdom.py`, `farside.py`, and `xkcd.py`
 - `scripts/games/nyt.py`, `latimes.py`, and `circle9.py`
 
 If a publisher changes markup or an endpoint, adjust only that adapter and its fixture test where possible.
@@ -66,7 +65,7 @@ A source may declare `fallback: another_source_id`; the fallback source should d
 
 ### Add a comic
 
-Add exactly one entry to `config/comics.yaml` with `id`, `title`, `provider`, `slug`, and `base_url`. GoComics and Comics Kingdom dated URLs are generated at collection time. Each adapter tries the edition date and up to seven prior days, records the strip's actual publication date, and supports multiple downloaded images. Display sorting ignores a leading “The.”
+Add exactly one entry to `config/comics.yaml` with `id`, `title`, `provider`, `slug`, and `base_url`. Comics Kingdom dated URLs are generated at collection time. Each adapter tries the edition date and up to seven prior days, records the strip's actual publication date, and supports multiple downloaded images. Display sorting ignores a leading “The.”
 
 ### Add an external game
 

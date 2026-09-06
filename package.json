@@ -13,8 +13,7 @@
     "test:e2e": "playwright test",
     "refresh": "python3 scripts/refresh.py",
     "refresh:comics": ".venv/bin/python -u scripts/refresh_comics.py && npm run build",
-    "comics:browser": "python3 scripts/open_gocomics_browser.py",
-    "refresh:local": "MORNING_PAPER_CDP_URL=http://127.0.0.1:9222 .venv/bin/python -u scripts/refresh.py && npm run build"
+    "refresh:local": ".venv/bin/python -u scripts/refresh.py && npm run build"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

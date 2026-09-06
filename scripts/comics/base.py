@@ -22,6 +22,7 @@ class ComicResult:
     images: list[str]
     status: str
     detail: str = ""
+    author: str | None = None
 
     def public(self) -> dict:
         value = asdict(self)
@@ -35,8 +36,6 @@ def sort_key(title: str) -> str:
 
 
 def dated_url(provider: str, slug: str, day: date) -> str:
-    if provider == "gocomics":
-        return f"https://www.gocomics.com/{slug}/{day:%Y/%m/%d}"
     if provider == "comics_kingdom":
         return f"https://comicskingdom.com/{slug}/{day:%Y-%m-%d}"
     raise ValueError(f"No dated route for {provider}")

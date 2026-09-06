@@ -12,7 +12,7 @@ async def collect(source: dict, day: date, client: HttpClient, output_dir: Path)
         published = date(int(payload["year"]), int(payload["month"]), int(payload["day"]))
         images = await download_images(client, [payload["img"]], source["id"], output_dir)
         if images:
-            return ComicResult(source["id"], source["title"], source["provider"], published.isoformat(), f'https://xkcd.com/{payload["num"]}/', images, "ok" if published == day else "stale")
+            return ComicResult(source["id"], source["title"], source["provider"], published.isoformat(), f'https://xkcd.com/{payload["num"]}/', images, "ok" if published == day else "stale", author=source.get("author"))
     except Exception as exc:
         return ComicResult(source["id"], source["title"], source["provider"], None, source["base_url"], [], "error", str(exc))
     return ComicResult(source["id"], source["title"], source["provider"], None, source["base_url"], [], "unavailable")

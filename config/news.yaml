@@ -9,7 +9,7 @@ sections:
       - { id: ap_latin_america, publisher: AP, adapter: ap, subsection: latin_america, title: Latin America, url: "https://apnews.com/hub/latin-america", limit: 10, specificity: 100 }
       - { id: ap_africa, publisher: AP, adapter: ap, subsection: africa, title: Africa, url: "https://apnews.com/hub/africa", limit: 10, specificity: 100 }
       - { id: ap_europe, publisher: AP, adapter: ap, subsection: europe, title: Europe, url: "https://apnews.com/hub/europe", limit: 10, specificity: 100 }
-      - { id: politico_canada, publisher: POLITICO, adapter: politico, subsection: canada, title: Canada, url: "https://www.politico.com/canada-politics-news-updates-analysis", limit: 10, specificity: 100 }
+      - { id: politico_canada, publisher: POLITICO, adapter: politico, subsection: canada, title: Canada, url: "https://www.politico.com/canada-politics-news-updates-analysis", feed_url: "https://rss.politico.com/canada.xml", limit: 10, specificity: 100 }
   - id: usa
     title: United States
     sources:
@@ -18,14 +18,14 @@ sections:
       - { id: ap_weather, publisher: AP, adapter: ap, subsection: weather, title: Weather, url: "https://apnews.com/hub/weather", limit: 10, specificity: 100 }
       - { id: ap_education, publisher: AP, adapter: ap, subsection: education, title: Education, url: "https://apnews.com/education", limit: 10, specificity: 100 }
       - { id: ap_transportation, publisher: AP, adapter: ap, subsection: transportation, title: Transportation, url: "https://apnews.com/us-news/transportation", limit: 10, specificity: 100 }
-      - { id: politico_congress, publisher: POLITICO, adapter: politico, subsection: congress, title: Congress, url: "https://www.politico.com/congress-news-updates-analysis", limit: 10, specificity: 100 }
-      - { id: politico_white_house, publisher: POLITICO, adapter: politico, subsection: white_house, title: White House, url: "https://www.politico.com/white-house-news-updates-analysis", limit: 10, specificity: 100 }
-      - { id: politico_security, publisher: POLITICO, adapter: politico, subsection: national_security, title: National Security, url: "https://www.politico.com/defense-national-security-foreign-policy-news-updates-analysis", limit: 10, specificity: 100 }
-      - { id: politico_elections, publisher: POLITICO, adapter: politico, subsection: elections_2026, title: 2026 Elections, url: "https://www.politico.com/2026-elections", limit: 10, specificity: 100 }
-      - { id: politico_energy, publisher: POLITICO, adapter: politico, subsection: energy_climate, title: Energy / Climate Policy, url: "https://www.politico.com/energy-climate-news-updates-analysis", limit: 10, specificity: 100 }
-      - { id: politico_health, publisher: POLITICO, adapter: politico, subsection: healthcare, title: Healthcare, url: "https://www.politico.com/healthcare-news-updates-analysis", limit: 10, specificity: 100 }
-      - { id: politico_legal, publisher: POLITICO, adapter: politico, subsection: supreme_court_legal, title: Supreme Court / Legal, url: "https://www.politico.com/supreme-court-legal-news-updates-analysis", limit: 10, specificity: 100 }
-      - { id: politico_tech, publisher: POLITICO, adapter: politico, subsection: technology, title: Technology, url: "https://www.politico.com/tech-news-updates-analysis", limit: 10, specificity: 100, fallback: ap_technology }
+      - { id: politico_congress, publisher: POLITICO, adapter: politico, subsection: congress, title: Congress, url: "https://www.politico.com/congress-news-updates-analysis", feed_url: "https://rss.politico.com/congress.xml", limit: 10, specificity: 100 }
+      - { id: politico_white_house, publisher: POLITICO, adapter: politico, subsection: white_house, title: White House, url: "https://www.politico.com/white-house-news-updates-analysis", feed_url: "https://rss.politico.com/white-house.xml", limit: 10, specificity: 100 }
+      - { id: politico_security, publisher: POLITICO, adapter: politico, subsection: national_security, title: National Security, url: "https://www.politico.com/defense-national-security-foreign-policy-news-updates-analysis", feed_url: "https://rss.politico.com/defense.xml", limit: 10, specificity: 100 }
+      - { id: politico_elections, publisher: POLITICO, adapter: politico, subsection: elections_2026, title: 2026 Elections, url: "https://www.politico.com/2026-elections", feed_url: "https://rss.politico.com/elections.xml", limit: 10, specificity: 100 }
+      - { id: politico_energy, publisher: POLITICO, adapter: politico, subsection: energy_climate, title: Energy / Climate Policy, url: "https://www.politico.com/energy-climate-news-updates-analysis", feed_url: "https://rss.politico.com/energy.xml", limit: 10, specificity: 100 }
+      - { id: politico_health, publisher: POLITICO, adapter: politico, subsection: healthcare, title: Healthcare, url: "https://www.politico.com/healthcare-news-updates-analysis", feed_url: "https://rss.politico.com/healthcare.xml", limit: 10, specificity: 100 }
+      - { id: politico_legal, publisher: POLITICO, adapter: politico, subsection: supreme_court_legal, title: Supreme Court / Legal, url: "https://www.politico.com/supreme-court-legal-news-updates-analysis", feed_url: "https://rss.politico.com/politics-news.xml", limit: 10, specificity: 100 }
+      - { id: politico_tech, publisher: POLITICO, adapter: politico, subsection: technology, title: Technology, url: "https://www.politico.com/tech-news-updates-analysis", feed_url: "https://rss.politico.com/technology.xml", limit: 10, specificity: 100, fallback: ap_technology }
       - { id: ap_technology, publisher: AP, adapter: ap, subsection: technology, title: Technology, url: "https://apnews.com/technology", limit: 10, specificity: 100, fallback_for: politico_tech }
   - id: science
     title: Science

@@ -10,7 +10,7 @@ async def collect(source: dict, day: date, client: HttpClient, output_dir: Path)
         response = await client.get(source["base_url"])
         images = await download_images(client, image_candidates(response.text, source["base_url"])[:2], source["id"], output_dir)
         if images:
-            return ComicResult(source["id"], source["title"], source["provider"], day.isoformat(), source["base_url"], images, "ok")
+            return ComicResult(source["id"], source["title"], source["provider"], day.isoformat(), source["base_url"], images, "ok", author=source.get("author"))
     except Exception as exc:
         return ComicResult(source["id"], source["title"], source["provider"], None, source["base_url"], [], "error", str(exc))
     return ComicResult(source["id"], source["title"], source["provider"], None, source["base_url"], [], "unavailable")

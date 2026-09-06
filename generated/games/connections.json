@@ -1,44 +1,44 @@
 {
-  "date": "2026-09-04",
+  "date": "2026-09-05",
   "groups": [
     {
       "level": 0,
-      "category": "SPHERICAL THINGS",
+      "category": "MOVE UNSTEADILY",
       "members": [
-        "BOWLING BALL",
-        "EYE",
-        "MOON",
-        "ORANGE"
+        "SWAY",
+        "TODDLE",
+        "TOTTER",
+        "WOBBLE"
       ]
     },
     {
       "level": 1,
-      "category": "FOOD WHOSE NAME IS TWO FOODS",
+      "category": "BIRD ONOMATOPOEIA",
       "members": [
-        "CAKE DONUT",
-        "CANDY CORN",
-        "CHERRY TOMATO",
-        "PIZZA PIE"
+        "COO",
+        "GOBBLE",
+        "HONK",
+        "WARBLE"
       ]
     },
     {
       "level": 2,
-      "category": "KINDS OF EELS",
+      "category": "___HEAD",
       "members": [
-        "CONGER",
-        "GULPER",
-        "MORAY",
-        "RIBBON"
+        "BOBBLE",
+        "HAMMER",
+        "JUG",
+        "SLEEPY"
       ]
     },
     {
       "level": 3,
-      "category": "ACCESSORIES INSIDE STARTING AND ENDING LETTERS",
+      "category": "DESSERTS MINUS LAST LETTER",
       "members": [
-        "CRINGY",
-        "OPINE",
-        "STIED",
-        "THAT'S"
+        "COBBLE",
+        "PI",
+        "TAR",
+        "TORT"
       ]
     }
   ],
