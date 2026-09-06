@@ -43,7 +43,7 @@ Adapters are isolated by provider:
 
 - `scripts/news/ap.py` and `scripts/news/politico.py`
 - `scripts/comics/comics_kingdom.py`, `farside.py`, and `xkcd.py`
-- `scripts/games/circle9.py`
+- `scripts/games/nyt.py`, `latimes.py`, and `circle9.py`
 
 If a publisher changes markup or an endpoint, adjust only that adapter and its fixture test where possible.
 
@@ -69,7 +69,9 @@ Add exactly one entry to `config/comics.yaml` with `id`, `title`, `provider`, `s
 
 ### Add an external game
 
-Add an item to `config/games.yaml` with `id`, `title`, `provider`, and `url`. The daily mini crossword is an A2Z Puzzles iframe that updates automatically; Circle9 items can include an `embed_url`, and the collector removes it if the provider no longer permits framing.
+Add an item to `config/games.yaml` with `id`, `title`, `provider`, and `url`. Circle9 items can include an `embed_url`; the collector checks current framing headers and removes the embed if framing is denied. L.A. Times pages are inspected daily for their current isolated Amuse Labs/PuzzleMe player. When no permitted player can be resolved, the site shows the original-page link.
+
+NYT puzzle endpoint knowledge is confined to `scripts/games/nyt.py`. The frontend only consumes project-specific normalized JSON. Strands answer paths are derived at build time with DFS and a global non-overlapping assignment.
 
 ### Change the schedule
 
@@ -88,8 +90,10 @@ For a custom domain, add it in **Settings → Pages → Custom domain** and foll
 
 ## Runtime behavior and limitations
 
+- The three local NYT-style games use official daily data when its date-addressable endpoint is reachable. Answers are present in static JSON by design, but never revealed in normal play except Wordle after six misses.
 - Browser progress is deliberately limited to the selected game. There is no login, analytics, advertising, or cross-device synchronization.
 - Third-party publishers can change markup, endpoints, framing policy, or automated-access policy at any time. The corresponding adapter then records a failure and the public edition retains an original-source link.
+- The L.A. Times game server allows frames only on its own related domains. The site resolves its current official Amuse Labs player each day and opens it directly in a new tab rather than presenting a blocked embedded frame.
 - Circle9 URLs do not need the example `v=414` query parameter; configuration uses their stable paths.
 
 ## Repository map

@@ -1,7 +1,10 @@
-import type { GamesData } from '../types';
+import type { ConnectionsData, GamesData, StrandsData, WordleData } from '../types';
 import { button, escapeHtml } from '../lib';
+import { createWordle } from '../games/wordle';
+import { createConnections } from '../games/connections';
+import { createStrands } from '../games/strands';
 
-export type GamePayloads = { games: GamesData | null };
+export type GamePayloads = { games: GamesData | null; wordle: WordleData | null; connections: ConnectionsData | null; strands: StrandsData | null };
 
 export function renderGames(data: GamePayloads): HTMLElement {
   const view = document.createElement('section'); view.className = 'view games-view';
@@ -9,12 +12,18 @@ export function renderGames(data: GamePayloads): HTMLElement {
   const picker = document.createElement('nav'); picker.className = 'games-toc'; picker.setAttribute('aria-label', 'Games contents');
   const stage = document.createElement('div'); stage.className = 'game-stage';
   const games = [
+    { id: 'wordle', title: 'Wordle', create: () => createWordle(data.wordle) },
+    { id: 'connections', title: 'Connections', create: () => createConnections(data.connections) },
+    { id: 'strands', title: 'Strands', create: () => createStrands(data.strands) },
     ...(data.games?.external ?? []).map(game => ({ id: game.id, title: game.title, create: () => {
       const panel = document.createElement('section'); panel.className = 'external-game';
-      if (game.embed_url && game.status === 'ok') {
+      if (game.provider === 'latimes') {
+        const playableUrl = game.embed_url || game.url;
+        panel.innerHTML = `<p class="notice">L.A. TIMES OPENS THIS PUZZLE IN ITS OWN TAB</p><a class="source-link external-game-launch" href="${escapeHtml(playableUrl)}" target="_blank" rel="noopener noreferrer">PLAY ${escapeHtml(game.title)} ↗</a>`;
+      } else if (game.embed_url && game.status === 'ok') {
         const iframe = document.createElement('iframe'); iframe.src = game.embed_url; iframe.title = game.title; iframe.loading = 'lazy'; iframe.setAttribute('allow', 'fullscreen'); panel.append(iframe);
       } else panel.innerHTML = `<p class="notice">EMBED UNAVAILABLE — OPEN TODAY'S PUZZLE</p>`;
-      panel.insertAdjacentHTML('beforeend', `<a class="source-link" href="${escapeHtml(game.url)}" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL ↗</a>`);
+      if (game.provider !== 'latimes') panel.insertAdjacentHTML('beforeend', `<a class="source-link" href="${escapeHtml(game.url)}" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL ↗</a>`);
       return panel;
     }}))
   ];

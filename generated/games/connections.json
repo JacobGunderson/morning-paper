@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-05",
+  "groups": [
+    {
+      "level": 0,
+      "category": "MOVE UNSTEADILY",
+      "members": [
+        "SWAY",
+        "TODDLE",
+        "TOTTER",
+        "WOBBLE"
+      ]
+    },
+    {
+      "level": 1,
+      "category": "BIRD ONOMATOPOEIA",
+      "members": [
+        "COO",
+        "GOBBLE",
+        "HONK",
+        "WARBLE"
+      ]
+    },
+    {
+      "level": 2,
+      "category": "___HEAD",
+      "members": [
+        "BOBBLE",
+        "HAMMER",
+        "JUG",
+        "SLEEPY"
+      ]
+    },
+    {
+      "level": 3,
+      "category": "DESSERTS MINUS LAST LETTER",
+      "members": [
+        "COBBLE",
+        "PI",
+        "TAR",
+        "TORT"
+      ]
+    }
+  ],
+  "status": "ok",
+  "source_url": "https://www.nytimes.com/games/connections"
+}

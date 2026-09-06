@@ -10,8 +10,8 @@
     "failed": 13
   },
   "games": {
-    "success": 4,
-    "failed": 0
+    "success": 6,
+    "failed": 2
   },
   "source_statuses": [
     {
@@ -471,9 +471,15 @@
       "detail": "request failed after 3 attempts: https://www.thefarside.com/: Client error '403 Forbidden' for url 'https://www.thefarside.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
     },
     {
-      "id": "daily_mini_crossword",
+      "id": "lat_crossword",
       "kind": "game",
-      "status": "ok",
+      "status": "unavailable",
+      "detail": ""
+    },
+    {
+      "id": "lat_mini",
+      "kind": "game",
+      "status": "unavailable",
       "detail": ""
     },
     {
@@ -490,6 +496,24 @@
     },
     {
       "id": "twinominoes",
+      "kind": "game",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "wordle",
+      "kind": "game",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "connections",
+      "kind": "game",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "strands",
       "kind": "game",
       "status": "ok",
       "detail": ""

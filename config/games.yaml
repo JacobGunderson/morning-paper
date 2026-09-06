@@ -1,5 +1,6 @@
 external:
-  - { id: daily_mini_crossword, title: Daily Mini Crossword, provider: static, url: "https://a2zpuzzles.com/crosswords/", embed_url: "https://a2zpuzzles.com/widgets/crossword-widget.html" }
   - { id: blueberry, title: Blueberry, provider: circle9, url: "https://circle9puzzle.com/blueberry/", embed_url: "https://circle9puzzle.com/blueberry/" }
   - { id: blueberry_trio, title: Blueberry Trio, provider: circle9, url: "https://circle9puzzle.com/bbtrio/", embed_url: "https://circle9puzzle.com/bbtrio/" }
   - { id: twinominoes, title: Twinominoes, provider: circle9, url: "https://circle9puzzle.com/twinominoes/", embed_url: "https://circle9puzzle.com/twinominoes/" }
+  - { id: lat_mini, title: L.A. Times Mini, provider: latimes, url: "https://www.latimes.com/games/mini-crossword" }
+  - { id: lat_crossword, title: L.A. Times Crossword, provider: latimes, url: "https://www.latimes.com/games/daily-crossword" }

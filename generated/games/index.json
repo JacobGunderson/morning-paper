@@ -2,14 +2,6 @@
   "date": "2026-09-05",
   "external": [
     {
-      "id": "daily_mini_crossword",
-      "title": "Daily Mini Crossword",
-      "provider": "static",
-      "url": "https://a2zpuzzles.com/crosswords/",
-      "embed_url": "https://a2zpuzzles.com/widgets/crossword-widget.html",
-      "status": "ok"
-    },
-    {
       "id": "blueberry",
       "title": "Blueberry",
       "provider": "circle9",
@@ -31,6 +23,22 @@
       "provider": "circle9",
       "url": "https://circle9puzzle.com/twinominoes/",
       "embed_url": "https://circle9puzzle.com/twinominoes/",
+      "status": "ok"
+    },
+    {
+      "id": "lat_mini",
+      "title": "L.A. Times Mini",
+      "provider": "latimes",
+      "url": "https://www.latimes.com/games/mini-crossword",
+      "embed_url": "https://lat.amuselabs.com/lat/date-picker?style=1&embed=1&set=latimes-mini&src=https%3A%2F%2Fwww.latimes.com%2Fgames%2Fmini-crossword&ads=0",
+      "status": "ok"
+    },
+    {
+      "id": "lat_crossword",
+      "title": "L.A. Times Crossword",
+      "provider": "latimes",
+      "url": "https://www.latimes.com/games/daily-crossword",
+      "embed_url": "https://lat.amuselabs.com/lat/date-picker?style=1&embed=1&set=latimes&src=https%3A%2F%2Fwww.latimes.com%2Fgames%2Fdaily-crossword&preroll=none",
       "status": "ok"
     }
   ]
