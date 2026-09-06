@@ -1,50 +1,117 @@
 [
   {
-    "id": "andy_capp",
+    "id": "gocomics_9_chickweed_lane",
+    "name": "9 Chickweed Lane",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/9-chickweed-lane",
+    "images": [
+      "comics/gocomics_9_chickweed_lane-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Brooke McEldowney"
+  },
+  {
+    "id": "gocomics_andycapp",
     "name": "Andy Capp",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/andycapp",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_andycapp-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Reg Smythe"
   },
   {
-    "id": "barney_clyde",
+    "id": "gocomics_annie",
+    "name": "Annie",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/annie",
+    "images": [
+      "comics/gocomics_annie-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Jay Maeder and Alan Kupperberg"
+  },
+  {
+    "id": "gocomics_theargylesweater",
+    "name": "The Argyle Sweater",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/theargylesweater",
+    "images": [
+      "comics/gocomics_theargylesweater-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Scott Hilburn"
+  },
+  {
+    "id": "gocomics_barneyandclyde",
     "name": "Barney & Clyde",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/barneyandclyde",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_barneyandclyde-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Gene Weingarten; Dan Weingarten & David Clark"
   },
   {
-    "id": "basic_instructions",
+    "id": "gocomics_basicinstructions",
     "name": "Basic Instructions",
-    "provider": "gocomics",
+    "provider": "gocomics_snapshot",
     "published_date": null,
     "source_url": "https://www.gocomics.com/basicinstructions",
     "images": [],
-    "status": "unavailable"
+    "status": "unavailable",
+    "author": null
+  },
+  {
+    "id": "gocomics_berger_and_wyse",
+    "name": "Berger & Wyse",
+    "provider": "gocomics_snapshot",
+    "published_date": null,
+    "source_url": "https://www.gocomics.com/berger-and-wyse",
+    "images": [],
+    "status": "unavailable",
+    "author": null
+  },
+  {
+    "id": "gocomics_berkeley_mews",
+    "name": "Berkeley Mews",
+    "provider": "gocomics_snapshot",
+    "published_date": null,
+    "source_url": "https://www.gocomics.com/berkeley-mews",
+    "images": [],
+    "status": "unavailable",
+    "author": null
   },
   {
     "id": "beware_toddler",
     "name": "Beware of Toddler",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-05",
+    "published_date": "2026-06-28",
     "source_url": "https://comicskingdom.com/beware-of-toddler/2026-09-05",
     "images": [
       "comics/beware_toddler-1-4450812649.jpg"
     ],
-    "status": "ok"
+    "status": "stale",
+    "author": "George Gant"
   },
   {
-    "id": "big_nate",
+    "id": "gocomics_bignate",
     "name": "Big Nate",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/bignate",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_bignate-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Lincoln Peirce"
   },
   {
     "id": "bizarro",
@@ -55,25 +122,42 @@
     "images": [
       "comics/bizarro-1-d2397a2a0a.jpg"
     ],
-    "status": "ok"
+    "status": "ok",
+    "author": "Wayno & Piraro"
   },
   {
-    "id": "boondocks",
-    "name": "Boondocks",
-    "provider": "gocomics",
+    "id": "gocomics_bob_the_angry_flower",
+    "name": "Bob the Angry Flower",
+    "provider": "gocomics_snapshot",
     "published_date": null,
+    "source_url": "https://www.gocomics.com/bob-the-angry-flower",
+    "images": [],
+    "status": "unavailable",
+    "author": null
+  },
+  {
+    "id": "gocomics_boondocks",
+    "name": "The Boondocks",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/boondocks",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_boondocks-2026-09-05.gif"
+    ],
+    "status": "mock",
+    "author": "Aaron McGruder"
   },
   {
-    "id": "brewster_rockit",
+    "id": "gocomics_brewsterrockit",
     "name": "Brewster Rockit",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/brewsterrockit",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_brewsterrockit-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Tim Rickard"
   },
   {
     "id": "edison_lee",
@@ -82,10 +166,11 @@
     "published_date": "2026-09-05",
     "source_url": "https://comicskingdom.com/brilliant-mind-of-edison-lee/2026-09-05",
     "images": [
-      "comics/edison_lee-1-3e4432e60d.jpg",
-      "comics/edison_lee-2-87728780eb.jpg"
+      "comics/edison_lee-1-9fc71c725a.jpg",
+      "comics/edison_lee-2-e6bb853929.jpg"
     ],
-    "status": "ok"
+    "status": "ok",
+    "author": "John Hambrock"
   },
   {
     "id": "broom_hilda",
@@ -96,34 +181,56 @@
     "images": [
       "comics/broom_hilda-1-993ab7cf72.jpg"
     ],
-    "status": "ok"
+    "status": "ok",
+    "author": "Russell Myers"
   },
   {
-    "id": "calvin_hobbes",
+    "id": "gocomics_calvinandhobbes",
     "name": "Calvin and Hobbes",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/calvinandhobbes",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_calvinandhobbes-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Bill Watterson"
   },
   {
-    "id": "cornered",
+    "id": "gocomics_cornered",
     "name": "Cornered",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/cornered",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_cornered-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Mike Baldwin"
   },
   {
-    "id": "cul_de_sac",
+    "id": "gocomics_crabgrass",
+    "name": "Crabgrass",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/crabgrass",
+    "images": [
+      "comics/gocomics_crabgrass-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Tauhid Bondia"
+  },
+  {
+    "id": "gocomics_culdesac",
     "name": "Cul de Sac",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/culdesac",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_culdesac-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Richard Thompson"
   },
   {
     "id": "dustin",
@@ -135,25 +242,30 @@
       "comics/dustin-1-9aa5e42b0a.jpg",
       "comics/dustin-2-9e86bc3e9f.jpg"
     ],
-    "status": "ok"
+    "status": "ok",
+    "author": "Steve Kelley & Jeff Parker"
   },
   {
-    "id": "eek",
+    "id": "gocomics_eek",
     "name": "Eek!",
-    "provider": "gocomics",
+    "provider": "gocomics_snapshot",
     "published_date": null,
     "source_url": "https://www.gocomics.com/eek",
     "images": [],
-    "status": "unavailable"
+    "status": "unavailable",
+    "author": null
   },
   {
-    "id": "f_minus",
+    "id": "gocomics_fminus",
     "name": "F Minus",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/fminus",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_fminus-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Tony Carrillo"
   },
   {
     "id": "far_side",
@@ -162,99 +274,134 @@
     "published_date": null,
     "source_url": "https://www.thefarside.com/",
     "images": [],
-    "status": "error"
+    "status": "error",
+    "author": null
   },
   {
-    "id": "foxtrot",
+    "id": "gocomics_foxtrot",
     "name": "FoxTrot",
-    "provider": "gocomics",
+    "provider": "gocomics_snapshot",
     "published_date": null,
     "source_url": "https://www.gocomics.com/foxtrot",
     "images": [],
-    "status": "unavailable"
+    "status": "unavailable",
+    "author": null
   },
   {
-    "id": "foxtrot_classics",
+    "id": "gocomics_foxtrotclassics",
     "name": "FoxTrot Classics",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/foxtrotclassics",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_foxtrotclassics-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Bill Amend"
   },
   {
     "id": "goomer",
     "name": "Goomer",
     "provider": "comics_kingdom",
-    "published_date": "2026-09-05",
+    "published_date": "2026-08-14",
     "source_url": "https://comicskingdom.com/goomer/2026-09-05",
     "images": [
       "comics/goomer-1-93f4e2ba06.jpg"
     ],
-    "status": "ok"
+    "status": "stale",
+    "author": "Ricardo Martinez & Ignacio \"Nacho\" Moreno"
   },
   {
-    "id": "grand_avenue",
+    "id": "gocomics_grand_avenue",
     "name": "Grand Avenue",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/grand-avenue",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_grand_avenue-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Mike Thompson"
   },
   {
-    "id": "ink_pen",
+    "id": "gocomics_inkpen",
     "name": "Ink Pen",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/inkpen",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_inkpen-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Phil Dunlap"
   },
   {
-    "id": "lio",
+    "id": "gocomics_life_on_earth",
+    "name": "Life on Earth",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/life-on-earth",
+    "images": [
+      "comics/gocomics_life_on_earth-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Ham"
+  },
+  {
+    "id": "gocomics_lio",
     "name": "Liō",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/lio",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_lio-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Mark Tatulli"
   },
   {
-    "id": "lockhorns",
+    "id": "gocomics_lockhorns",
     "name": "The Lockhorns",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/lockhorns",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_lockhorns-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Bunny Hoest, John Reiner"
   },
   {
-    "id": "looks_good",
+    "id": "gocomics_looks_good_on_paper",
     "name": "Looks Good on Paper",
-    "provider": "gocomics",
+    "provider": "gocomics_snapshot",
     "published_date": null,
     "source_url": "https://www.gocomics.com/looks-good-on-paper",
     "images": [],
-    "status": "unavailable"
+    "status": "unavailable",
+    "author": null
   },
   {
-    "id": "nancy",
+    "id": "gocomics_nancy",
     "name": "Nancy",
-    "provider": "gocomics",
-    "published_date": null,
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
     "source_url": "https://www.gocomics.com/nancy",
-    "images": [],
-    "status": "unavailable"
+    "images": [
+      "comics/gocomics_nancy-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Caroline Cash"
   },
   {
-    "id": "nancy_classics",
+    "id": "gocomics_nancy_classics",
     "name": "Nancy Classics",
-    "provider": "gocomics",
+    "provider": "gocomics_snapshot",
     "published_date": null,
     "source_url": "https://www.gocomics.com/nancy-classics",
     "images": [],
-    "status": "unavailable"
+    "status": "unavailable",
+    "author": null
   },
   {
     "id": "never_deader",
@@ -265,27 +412,54 @@
     "images": [
       "comics/never_deader-1-64d0eca08a.jpg"
     ],
-    "status": "ok"
+    "status": "ok",
+    "author": "Tommy Devoid"
   },
   {
-    "id": "non_sequitur",
+    "id": "gocomics_nonsequitur",
     "name": "Non Sequitur",
-    "provider": "gocomics",
-    "published_date": "2026-09-04",
-    "source_url": "https://www.gocomics.com/nonsequitur/2026/09/04",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/nonsequitur",
     "images": [
-      "comics/non_sequitur-1-bf683962cb.gif"
+      "comics/gocomics_nonsequitur-2026-09-05.webp"
     ],
-    "status": "ok"
+    "status": "mock",
+    "author": "Wiley Miller"
   },
   {
-    "id": "origins",
-    "name": "Origins of the Sunday Comics",
-    "provider": "gocomics",
+    "id": "gocomics_offthemark",
+    "name": "Off the Mark",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/offthemark",
+    "images": [
+      "comics/gocomics_offthemark-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Mark Parisi"
+  },
+  {
+    "id": "gocomics_peanuts_begins",
+    "name": "Peanuts Begins",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/peanuts-begins",
+    "images": [
+      "comics/gocomics_peanuts_begins-2026-09-05.webp"
+    ],
+    "status": "mock",
+    "author": "Charles Schulz"
+  },
+  {
+    "id": "gocomics_redmeat",
+    "name": "Red Meat",
+    "provider": "gocomics_snapshot",
     "published_date": null,
-    "source_url": "https://www.gocomics.com/origins-of-the-sunday-comics",
+    "source_url": "https://www.gocomics.com/redmeat",
     "images": [],
-    "status": "unavailable"
+    "status": "unavailable",
+    "author": null
   },
   {
     "id": "rhymes_orange",
@@ -296,84 +470,88 @@
     "images": [
       "comics/rhymes_orange-1-9aa1fda9b3.jpg"
     ],
-    "status": "ok"
+    "status": "ok",
+    "author": "Hilary Price & Rina Piccolo"
   },
   {
-    "id": "ripleys",
-    "name": "Ripley's Believe It or Not!",
-    "provider": "gocomics",
-    "published_date": "2026-09-04",
-    "source_url": "https://www.gocomics.com/ripleysbelieveitornot/2026/09/04",
+    "id": "gocomics_ripleysbelieveitornot",
+    "name": "Ripley's Believe It or Not",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/ripleysbelieveitornot",
     "images": [
-      "comics/ripleys-1-71dd3d2ad9.gif"
+      "comics/gocomics_ripleysbelieveitornot-2026-09-05.webp"
     ],
-    "status": "ok"
+    "status": "mock",
+    "author": "Ripley's"
   },
   {
-    "id": "smbc",
+    "id": "gocomics_saturday_morning_breakfast_cereal",
     "name": "Saturday Morning Breakfast Cereal",
-    "provider": "gocomics",
-    "published_date": "2026-09-04",
-    "source_url": "https://www.gocomics.com/saturday-morning-breakfast-cereal/2026/09/04",
-    "images": [
-      "comics/smbc-1-4eee613bf3.gif"
-    ],
-    "status": "ok"
+    "provider": "gocomics_snapshot",
+    "published_date": null,
+    "source_url": "https://www.gocomics.com/saturday-morning-breakfast-cereal",
+    "images": [],
+    "status": "unavailable",
+    "author": null
   },
   {
-    "id": "speed_bump",
+    "id": "gocomics_speedbump",
     "name": "Speed Bump",
-    "provider": "gocomics",
-    "published_date": "2026-09-04",
-    "source_url": "https://www.gocomics.com/speedbump/2026/09/04",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/speedbump",
     "images": [
-      "comics/speed_bump-1-dbf0d583b4.gif"
+      "comics/gocomics_speedbump-2026-09-05.webp"
     ],
-    "status": "ok"
+    "status": "mock",
+    "author": "Dave Coverly"
   },
   {
-    "id": "thatababy",
+    "id": "gocomics_thatababy",
     "name": "Thatababy",
-    "provider": "gocomics",
-    "published_date": "2026-09-04",
-    "source_url": "https://www.gocomics.com/thatababy/2026/09/04",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/thatababy",
     "images": [
-      "comics/thatababy-1-107f701ce8.gif"
+      "comics/gocomics_thatababy-2026-09-05.webp"
     ],
-    "status": "ok"
+    "status": "mock",
+    "author": "Jonathan Lemon"
   },
   {
-    "id": "tom_dancing_bug",
+    "id": "gocomics_tomthedancingbug",
     "name": "Tom the Dancing Bug",
-    "provider": "gocomics",
-    "published_date": "2026-09-04",
-    "source_url": "https://www.gocomics.com/tomthedancingbug/2026/09/04",
-    "images": [
-      "comics/tom_dancing_bug-1-ae54d5df6a.gif"
-    ],
-    "status": "ok"
+    "provider": "gocomics_snapshot",
+    "published_date": null,
+    "source_url": "https://www.gocomics.com/tomthedancingbug",
+    "images": [],
+    "status": "unavailable",
+    "author": null
   },
   {
-    "id": "wizard_id",
+    "id": "gocomics_wizardofid",
     "name": "Wizard of Id",
-    "provider": "gocomics",
-    "published_date": "2026-09-04",
-    "source_url": "https://www.gocomics.com/wizardofid/2026/09/04",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/wizardofid",
     "images": [
-      "comics/wizard_id-1-d496a6556a.gif"
+      "comics/gocomics_wizardofid-2026-09-05.webp"
     ],
-    "status": "ok"
+    "status": "mock",
+    "author": "Parker and Hart"
   },
   {
-    "id": "wizard_id_classics",
+    "id": "gocomics_wizard_of_id_classics",
     "name": "Wizard of Id Classics",
-    "provider": "gocomics",
-    "published_date": "2026-09-04",
-    "source_url": "https://www.gocomics.com/wizard-of-id-classics/2026/09/04",
+    "provider": "gocomics_snapshot",
+    "published_date": "2026-09-05",
+    "source_url": "https://www.gocomics.com/wizard-of-id-classics",
     "images": [
-      "comics/wizard_id_classics-1-97b0521301.gif"
+      "comics/gocomics_wizard_of_id_classics-2026-09-05.webp"
     ],
-    "status": "ok"
+    "status": "mock",
+    "author": "Parker and Hart"
   },
   {
     "id": "xkcd",
@@ -384,6 +562,17 @@
     "images": [
       "comics/xkcd-1-68680a9690.png"
     ],
-    "status": "stale"
+    "status": "stale",
+    "author": "Randall Munroe"
+  },
+  {
+    "id": "gocomics_zen_pencils",
+    "name": "Zen Pencils",
+    "provider": "gocomics_snapshot",
+    "published_date": null,
+    "source_url": "https://www.gocomics.com/zen-pencils",
+    "images": [],
+    "status": "unavailable",
+    "author": null
   }
 ]
