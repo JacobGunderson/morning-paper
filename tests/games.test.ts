@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { adjacent, cellsBetween, evaluateConnection, scoreWordle, traceWord, validPath } from '../src/games/logic';
 
 describe('Wordle scoring', () => {
@@ -39,5 +40,13 @@ describe('Strands paths', () => {
   it('fills cells crossed by a fast straight pointer movement', () => {
     expect(cellsBetween([3, 0], [3, 5])).toEqual([[3, 1], [3, 2], [3, 3], [3, 4], [3, 5]]);
     expect(cellsBetween([0, 0], [2, 1])).toEqual([]);
+  });
+});
+
+describe('crossword embeds', () => {
+  it('keeps both daily crossword formats without L.A. Times', () => {
+    const games = JSON.parse(readFileSync(new URL('../generated/games/index.json', import.meta.url), 'utf8')) as { external: Array<{ id: string; provider: string }> };
+    expect(games.external.map(game => game.id)).toEqual(expect.arrayContaining(['daily_mini_crossword', 'daily_crossword']));
+    expect(games.external.map(game => game.provider)).not.toContain('latimes');
   });
 });

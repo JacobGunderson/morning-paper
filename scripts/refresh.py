@@ -19,7 +19,7 @@ if str(ROOT) not in sys.path:
 
 from scripts.comics.base import ComicResult, sort_key
 from scripts.comics import comics_kingdom, farside, xkcd
-from scripts.games import circle9, latimes, nyt
+from scripts.games import circle9, nyt
 from scripts.news import ap, politico
 from scripts.news.base import HttpClient, assign_unique
 from scripts.validate import validate_comics, validate_games, validate_news
@@ -149,8 +149,10 @@ async def main() -> None:
 
     games_config = load_yaml("games.yaml")
     async def external_game(source: dict) -> dict:
-        adapter = circle9 if source["provider"] == "circle9" else latimes
-        result = await limited(adapter.collect(source, client))
+        if source["provider"] == "circle9":
+            result = await limited(circle9.collect(source, client))
+        else:
+            result = {**source, "status": "ok"}
         statuses.append({"id": source["id"], "kind": "game", "status": result["status"], "detail": result.get("detail", "")[:240]})
         return result
 

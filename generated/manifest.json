@@ -10,8 +10,8 @@
     "failed": 13
   },
   "games": {
-    "success": 6,
-    "failed": 2
+    "success": 8,
+    "failed": 0
   },
   "source_statuses": [
     {
@@ -471,15 +471,15 @@
       "detail": "request failed after 3 attempts: https://www.thefarside.com/: Client error '403 Forbidden' for url 'https://www.thefarside.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
     },
     {
-      "id": "lat_crossword",
+      "id": "daily_mini_crossword",
       "kind": "game",
-      "status": "unavailable",
+      "status": "ok",
       "detail": ""
     },
     {
-      "id": "lat_mini",
+      "id": "daily_crossword",
       "kind": "game",
-      "status": "unavailable",
+      "status": "ok",
       "detail": ""
     },
     {

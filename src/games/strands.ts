@@ -94,6 +94,7 @@ export function createStrands(data: StrandsData | null): HTMLElement {
   board.onpointerdown = event => {
     const coordinate = coordinateFromEvent(event); if (!coordinate) return;
     pointerId = event.pointerId; pointerStart = coordinate; dragging = false;
+    board.setPointerCapture(event.pointerId);
   };
   board.onpointermove = event => {
     if (pointerId !== event.pointerId || !pointerStart) return;
@@ -104,6 +105,7 @@ export function createStrands(data: StrandsData | null): HTMLElement {
   const finish = (event: PointerEvent) => {
     if (pointerId !== event.pointerId) return;
     if (dragging) { suppressClick = true; submit(); }
+    if (board.hasPointerCapture(event.pointerId)) board.releasePointerCapture(event.pointerId);
     pointerId = null; pointerStart = null; dragging = false;
   };
   board.onpointerup = finish; board.onpointercancel = event => { pointerId = null; pointerStart = null; dragging = false; event.preventDefault(); };
