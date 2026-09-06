@@ -52,7 +52,8 @@ export function createStrands(data: StrandsData | null): HTMLElement {
     hintStatus.textContent = hint.disabled ? `HINTS: ${earned.value} OF 3 NON-THEME WORDS` : 'HINT READY';
   };
   const coordinateFromEvent = (event: PointerEvent): [number, number] | null => {
-    const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLButtonElement>('.strand-cell');
+    const directTarget = event.target instanceof Element ? event.target.closest<HTMLButtonElement>('.strand-cell') : null;
+    const target = directTarget ?? document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLButtonElement>('.strand-cell');
     if (!target || !board.contains(target)) return null;
     return [Number(target.dataset.row), Number(target.dataset.column)];
   };
@@ -89,10 +90,9 @@ export function createStrands(data: StrandsData | null): HTMLElement {
     const before = active.length; extend(coordinate);
     if (active.length === before && cellKey(active.at(-1)!) !== cellKey(coordinate)) message.textContent = 'NEXT LETTER MUST TOUCH THE SELECTION';
     const word = traceWord(gridData, active).toUpperCase();
-    if (answers.some(answer => !found.has(answer.word) && answer.word.toUpperCase() === word)) submit();
+    if (answers.some(answer => !found.has(answer.word) && answer.word.toUpperCase() === word) || (data.valid_words ?? []).includes(word)) submit();
   };
-  board.onpointerdown = event => {
-    const coordinate = coordinateFromEvent(event); if (!coordinate) return;
+  const beginPointerPath = (event: PointerEvent, coordinate: [number, number]) => {
     pointerId = event.pointerId; pointerStart = coordinate; dragging = false;
     board.setPointerCapture(event.pointerId);
   };
@@ -109,11 +109,16 @@ export function createStrands(data: StrandsData | null): HTMLElement {
     pointerId = null; pointerStart = null; dragging = false;
   };
   board.onpointerup = finish; board.onpointercancel = event => { pointerId = null; pointerStart = null; dragging = false; event.preventDefault(); };
-  board.onclick = event => {
-    const target = (event.target as Element).closest<HTMLButtonElement>('.strand-cell'); if (!target || !board.contains(target)) return;
-    if (suppressClick) { suppressClick = false; return; }
-    selectByClick([Number(target.dataset.row), Number(target.dataset.column)]);
-  };
+  // The individual cells own click handling. Pointer capture changes the event target
+  // during a drag, so relying on one delegated board click made taps unreliable.
+  cells.forEach((cell, key) => {
+    const [row, column] = key.split(',').map(Number) as [number, number];
+    cell.onpointerdown = event => beginPointerPath(event, [row, column]);
+    cell.onclick = () => {
+      if (suppressClick) { suppressClick = false; return; }
+      selectByClick([row, column]);
+    };
+  });
   check.onclick = submit;
   clear.onclick = () => { active = []; message.textContent = ''; refreshLines(); };
   hint.onclick = () => {
